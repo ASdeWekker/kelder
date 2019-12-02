@@ -1,4 +1,4 @@
-body, html {
+body, html, #root, .App {
   background: none;
   height: 100%;
   margin: 0;
@@ -7,8 +7,12 @@ body, html {
 }
 
 html {
+  background: tomato;
   font-family: "Cantarell", sans-serif;
   line-height: 1.15;
+}
+html body #root .App h1 {
+  margin: 0;
 }
 
 /*# sourceMappingURL=index.css.map */
