@@ -1,5 +1,7 @@
-body, html, #root, .App {
+body, html, #root, .App, .container {
   background: none;
+  box-sizing: border-box;
+  color: #ddd;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -7,12 +9,38 @@ body, html, #root, .App {
 }
 
 html {
-  background: tomato;
+  background: #263238;
   font-family: "Cantarell", sans-serif;
   line-height: 1.15;
 }
-html body #root .App h1 {
+html body #root .App .container {
+  height: auto;
+  padding: 1.6rem;
+}
+html body #root .App .container .header--title {
+  letter-spacing: 2px;
   margin: 0;
+}
+html body #root .App .container .header--date {
+  text-transform: capitalize;
+  word-spacing: 3px;
+}
+html body #root .App .footer {
+  background: #11171a;
+  bottom: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+html body #root .App .footer .button {
+  height: 50px;
+  width: 50px;
+}
+html body #root .App .footer .button i {
+  font-size: 3rem;
 }
 
 /*# sourceMappingURL=index.css.map */
