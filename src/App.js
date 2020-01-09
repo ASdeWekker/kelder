@@ -29,28 +29,28 @@ class App extends Component {
 						<h2 className="container--header">Practice</h2>
 						<div className="container--wrapper">
 							<div className="container--wrapper--button item-1">
-								<a className="container--wrapper--button--link" href="javascript:void(0);">ExpressTut</a>
-								<a className="container--wrapper--button--toggle" href="javascript:void(0);"><i className="fas fa-power-off"></i></a>
+								<button className="container--wrapper--button--link">ExpressTut</button>
+								<button className="container--wrapper--button--toggle"><i className="fas fa-power-off"></i></button>
 							</div>
 							<div className="container--wrapper--button item-2">
-								<a className="container--wrapper--button--link" href="javascript:void(0);">NodeMongo</a>
-								<a className="container--wrapper--button--toggle" href="javascript:void(0);"><i className="fas fa-power-off"></i></a>
+								<button className="container--wrapper--button--link">NodeMongo</button>
+								<button className="container--wrapper--button--toggle"><i className="fas fa-power-off"></i></button>
 							</div>
 							<div className="container--wrapper--button item-3">
-								<a className="container--wrapper--button--link" href="javascript:void(0);">MeanTut</a>
-								<a className="container--wrapper--button--toggle" href="javascript:void(0);"><i className="fas fa-power-off"></i></a>
+								<button className="container--wrapper--button--link">MeanTut</button>
+								<button className="container--wrapper--button--toggle"><i className="fas fa-power-off"></i></button>
 							</div>
 							<div className="container--wrapper--button item-4">
-								<a className="container--wrapper--button--link" href="javascript:void(0);">Session</a>
-								<a className="container--wrapper--button--toggle" href="javascript:void(0);"><i className="fas fa-power-off"></i></a>
+								<button className="container--wrapper--button--link">Session</button>
+								<button className="container--wrapper--button--toggle"><i className="fas fa-power-off"></i></button>
 							</div>
 							<div className="container--wrapper--button item-5">
-								<a className="container--wrapper--button--link" href="javascript:void(0);">AddPage</a>
-								<a className="container--wrapper--button--toggle" href="javascript:void(0);"><i className="fas fa-power-off"></i></a>
+								<button className="container--wrapper--button--link">AddPage</button>
+								<button className="container--wrapper--button--toggle"><i className="fas fa-power-off"></i></button>
 							</div>
 							<div className="container--wrapper--button item-6">
-								<a className="container--wrapper--button--link" href="javascript:void(0);">PostgreSQL</a>
-								<a className="container--wrapper--button--toggle" href="javascript:void(0);"><i className="fas fa-power-off"></i></a>
+								<button className="container--wrapper--button--link">PostgreSQL</button>
+								<button className="container--wrapper--button--toggle"><i className="fas fa-power-off"></i></button>
 							</div>
 						</div>
 					</div>
@@ -58,20 +58,20 @@ class App extends Component {
 						<h2 className="container--header">Projects</h2>
 						<div className="container--wrapper">
 							<div className="container--wrapper--button item-1">
-								<a className="container--wrapper--button--link" href="javascript:void(0);">Darten</a>
-								<a className="container--wrapper--button--toggle" href="javascript:void(0);"><i className="fas fa-power-off"></i></a>
+								<button className="container--wrapper--button--link">Darten</button>
+								<button className="container--wrapper--button--toggle"><i className="fas fa-power-off"></i></button>
 							</div>
 							<div className="container--wrapper--button item-2">
-								<a className="container--wrapper--button--link" href="javascript:void(0);">URLName</a>
-								<a className="container--wrapper--button--toggle" href="javascript:void(0);"><i className="fas fa-power-off"></i></a>
+								<button className="container--wrapper--button--link">URLName</button>
+								<button className="container--wrapper--button--toggle"><i className="fas fa-power-off"></i></button>
 							</div>
 							<div className="container--wrapper--button item-3">
-								<a className="container--wrapper--button--link" href="javascript:void(0);">SpeedTest</a>
-								<a className="container--wrapper--button--toggle" href="javascript:void(0);"><i className="fas fa-power-off"></i></a>
+								<button className="container--wrapper--button--link">SpeedTest</button>
+								<button className="container--wrapper--button--toggle"><i className="fas fa-power-off"></i></button>
 							</div>
 							<div className="container--wrapper--button item-4">
-								<a className="container--wrapper--button--link" href="javascript:void(0);">Weight</a>
-								<a className="container--wrapper--button--toggle" href="javascript:void(0);"><i className="fas fa-power-off"></i></a>
+								<button className="container--wrapper--button--link">Weight</button>
+								<button className="container--wrapper--button--toggle"><i className="fas fa-power-off"></i></button>
 							</div>
 						</div>
 					</div>
@@ -79,41 +79,41 @@ class App extends Component {
 				<section className="bottom">
 					<div className="most-used-places">
 						<div className="container">
-							<a className="container--button pihole" href="javascript:void();">
+							<button className="container--button pihole" href="javascript:void();">
 								<div className="container--button--circle"><i className="fab fa-adversal"></i></div>
 								<p className="container--button--text">Pihole</p>
-							</a>
-							<a className="container--button apache" href="javascript:void();">
+							</button>
+							<button className="container--button apache" href="javascript:void();">
 								<div className="container--button--circle"><i className="fas fa-cloud"></i></div>
 								<p className="container--button--text">Apache</p>
-							</a>
-							<a className="container--button docker" href="javascript:void();">
+							</button>
+							<button className="container--button docker" href="javascript:void();">
 								<div className="container--button--circle"><i className="fab fa-docker"></i></div>
 								<p className="container--button--text">Docker</p>
-							</a>
-							<a className="container--button recipes" href="javascript:void();">
+							</button>
+							<button className="container--button recipes" href="javascript:void();">
 								<div className="container--button--circle"><i className="fas fa-utensils"></i></div>
 								<p className="container--button--text">Recipes</p>
-							</a>
-							<a className="container--button weight" href="javascript:void();">
+							</button>
+							<button className="container--button weight" href="javascript:void();">
 								<div className="container--button--circle"><i className="fas fa-weight"></i></div>
 								<p className="container--button--text">Weight</p>
-							</a>
+							</button>
 						</div>
 					</div>
 					<div className="home-control">
 						<div className="container">
 							<div className="container--button plugs">
-								<a className="container--button--icon" href="javascript:void(0);"><i className="fas fa-power-off"></i></a>
-								<a className="container--button--text" href="javascript:void(0);">Plugs</a>
+								<button className="container--button--icon"><i className="fas fa-power-off"></i></button>
+								<button className="container--button--text">Plugs</button>
 							</div>
 							<div className="container--button ledstrip">
-								<a className="container--button--icon" href="javascript:void(0);"><i className="fas fa-power-off"></i></a>
-								<a className="container--button--text" href="javascript:void(0);">Ledstrip</a>
+								<button className="container--button--icon"><i className="fas fa-power-off"></i></button>
+								<button className="container--button--text">Ledstrip</button>
 							</div>
 							<div className="container--button pc">
-								<a className="container--button--icon" href="javascript:void(0);"><i className="fas fa-power-off"></i></a>
-								<a className="container--button--text" href="javascript:void(0);">PC</a>
+								<button className="container--button--icon"><i className="fas fa-power-off"></i></button>
+								<button className="container--button--text">PC</button>
 							</div>
 						</div>
 					</div>
