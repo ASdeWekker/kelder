@@ -13,6 +13,7 @@ html, body, #root, .App {
 button {
   background: none;
   border: none;
+  font-family: Arial, sans-serif;
   padding: 0;
 }
 
@@ -97,17 +98,18 @@ html body #root .App .body .container--wrapper--button {
   background: #ededed;
   border-radius: 20px;
   display: inline-block;
-  font-size: 16.8px;
   margin-right: 10px;
-  padding: 0.6em 0.7em;
+  padding: 0.7em 0.8em;
 }
 html body #root .App .body .container--wrapper--button:first-child {
   margin-left: 20px;
 }
 html body #root .App .body .container--wrapper--button--link {
+  font-size: 1.2em;
   margin: 0;
 }
 html body #root .App .body .container--wrapper--button--toggle {
+  font-size: 1.2em;
   margin-left: 0.3em;
 }
 html body #root .App .body .container.projects {
@@ -149,6 +151,7 @@ html body #root .App .bottom .most-used-places .container--button--circle {
   width: 62px;
 }
 html body #root .App .bottom .most-used-places .container--button--text {
+  font-size: 1.13em;
   margin: 0;
   text-align: center;
   width: 62px;
