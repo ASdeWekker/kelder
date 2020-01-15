@@ -79,11 +79,13 @@ html body #root .App .body .container {
   width: 100%;
 }
 html body #root .App .body .container--header {
-  font-size: 1.1em;
+  color: #808080;
+  font-size: 1.3em;
   font-weight: 400;
   height: 22px;
   line-height: 22px;
   margin: 0 0 8px 32px;
+  text-decoration: underline;
 }
 html body #root .App .body .container--wrapper {
   height: 50px;

@@ -6,6 +6,19 @@ class App extends Component {
 		this.dateStringOptions = { month: "long", day: "numeric" }
 	}
 
+	XMLRequest = () => {
+		let xhttp, obj
+		xhttp = new XMLHttpRequest()
+		xhttp.onreadystatechange = function() {
+			if (this.readyState === 4 && this.status === 200) {
+				obj.JSON.parse(this.responseText)
+				console.log(obj)
+			}
+		}
+		xhttp.open("GET", "http://192.168.1.90:3099/wol", true)
+		xhttp.send()
+	}
+
 	render() {
 		return (
 			<div className="App">
@@ -79,23 +92,23 @@ class App extends Component {
 				<section className="bottom">
 					<div className="most-used-places">
 						<div className="container">
-							<button className="container--button pihole" href="javascript:void();">
+							<button className="container--button pihole">
 								<div className="container--button--circle"><i className="fab fa-adversal"></i></div>
 								<p className="container--button--text">Pihole</p>
 							</button>
-							<button className="container--button apache" href="javascript:void();">
+							<button className="container--button apache">
 								<div className="container--button--circle"><i className="fas fa-cloud"></i></div>
 								<p className="container--button--text">Apache</p>
 							</button>
-							<button className="container--button docker" href="javascript:void();">
+							<button className="container--button docker">
 								<div className="container--button--circle"><i className="fab fa-docker"></i></div>
 								<p className="container--button--text">Docker</p>
 							</button>
-							<button className="container--button recipes" href="javascript:void();">
+							<button className="container--button recipes">
 								<div className="container--button--circle"><i className="fas fa-utensils"></i></div>
 								<p className="container--button--text">Recipes</p>
 							</button>
-							<button className="container--button weight" href="javascript:void();">
+							<button className="container--button weight">
 								<div className="container--button--circle"><i className="fas fa-weight"></i></div>
 								<p className="container--button--text">Weight</p>
 							</button>
@@ -112,7 +125,9 @@ class App extends Component {
 								<button className="container--button--text">Ledstrip</button>
 							</div>
 							<div className="container--button pc">
-								<button className="container--button--icon"><i className="fas fa-power-off"></i></button>
+								<button className="container--button--icon" onClick={this.XMLRequest}>
+									<i className="fas fa-power-off"></i>
+								</button>
 								<button className="container--button--text">PC</button>
 							</div>
 						</div>
