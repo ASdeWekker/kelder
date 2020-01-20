@@ -6,7 +6,7 @@ class App extends Component {
 		this.dateStringOptions = { month: "long", day: "numeric" }
 	}
 
-	XMLRequest = () => {
+	turnOnPc = () => {
 		let xhttp, obj
 		xhttp = new XMLHttpRequest()
 		xhttp.onreadystatechange = function() {
@@ -15,7 +15,7 @@ class App extends Component {
 				console.log(obj)
 			}
 		}
-		xhttp.open("GET", "http://192.168.1.90:3099/wol", true)
+		xhttp.open("GET", "http://localhost:3011/api/on", true)
 		xhttp.send()
 	}
 
@@ -125,7 +125,7 @@ class App extends Component {
 								<button className="container--button--text">Ledstrip</button>
 							</div>
 							<div className="container--button pc">
-								<button className="container--button--icon" onClick={this.XMLRequest}>
+								<button className="container--button--icon" onClick={this.turnOnPc}>
 									<i className="fas fa-power-off"></i>
 								</button>
 								<button className="container--button--text">PC</button>
