@@ -7,7 +7,8 @@ class App extends Component {
 	}
 
 	turnOnPc = () => {
-		let xhttp, obj
+		let xhttp
+		let obj
 		xhttp = new XMLHttpRequest()
 		xhttp.onreadystatechange = function() {
 			if (this.readyState === 4 && this.status === 200) {
@@ -15,7 +16,7 @@ class App extends Component {
 				console.log(obj)
 			}
 		}
-		xhttp.open("GET", "http://localhost:3011/api/on", true)
+		xhttp.open("GET", "/api/pc/on", true)
 		xhttp.send()
 	}
 

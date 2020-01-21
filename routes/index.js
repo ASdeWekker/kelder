@@ -4,7 +4,7 @@ const { exec } = require("child_process")
 const router = express.Router()
 
 // A route
-router.get("/on", (req, res) => {
+router.get("/pc/on", (req, res) => {
 	exec("wol 30:9c:23:04:60:2f", (err, stdout, stderr) => {
 		if (err) {
 			console.error(`exec error: ${err}`)
@@ -21,7 +21,7 @@ router.get("/on", (req, res) => {
 	})
 })
 
-router.get("/off", (req, res) => {
+router.get("/pc/off", (req, res) => {
 	res.send("This turns the pc off")
 })
 
