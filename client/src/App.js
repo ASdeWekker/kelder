@@ -7,8 +7,13 @@ class App extends Component {
 	}
 
 	// A fetch for turning on the pc, hasn't been tested yet.
-	turnOnPc = () => {
-		fetch("/api/pc/on").then(console.log("Pc powered on"))
+	pcOn = () => {
+		fetch("/api/pc/on").then(console.log("PC: ON"))
+	}
+
+	// Fetches for turning the ledstrip on or off.
+	ledToggle = () => {
+		fetch("/api/led/toggle").then(console.log("Ledstrip: TOGGLED"))
 	}
 
 	render() {
@@ -115,14 +120,16 @@ class App extends Component {
 								<button className="container--button--text">Plugs</button>
 							</div>
 							<div className="container--button ledstrip">
-								<button className="container--button--icon"><i className="fas fa-power-off"></i></button>
+								<button className="container--button--icon" onClick={this.ledToggle}>
+									<i className="fas fa-power-off"></i>
+								</button>
 								<button className="container--button--text">Ledstrip</button>
 							</div>
 							<div className="container--button pc">
-								<button className="container--button--icon" onClick={this.turnOnPc}>
+								<button className="container--button--icon" onClick={this.pcOn}>
 									<i className="fas fa-power-off"></i>
 								</button>
-								<button className="container--button--text">PC</button>
+								<button className="container--button--text" onClick={this.pcOn}>PC</button>
 							</div>
 						</div>
 					</div>
