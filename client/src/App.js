@@ -6,18 +6,9 @@ class App extends Component {
 		this.dateStringOptions = { month: "long", day: "numeric" }
 	}
 
+	// A fetch for turning on the pc, hasn't been tested yet.
 	turnOnPc = () => {
-		let xhttp
-		let obj
-		xhttp = new XMLHttpRequest()
-		xhttp.onreadystatechange = function() {
-			if (this.readyState === 4 && this.status === 200) {
-				obj.JSON.parse(this.responseText)
-				console.log(obj)
-			}
-		}
-		xhttp.open("GET", "/api/pc/on", true)
-		xhttp.send()
+		fetch("/api/pc/on").then(console.log("Pc powered on"))
 	}
 
 	render() {
@@ -28,13 +19,15 @@ class App extends Component {
 						<div className="header--container--left">
 							<div className="header--container--left--wrapper">
 								<h1 className="header--container--left--wrapper--text">Kelder</h1>
-								<h2 className="header--container--left--wrapper--date">{
-									new Date().toLocaleDateString("nl-NL", this.dateStringOptions)
-								}</h2>
+								<h2 className="header--container--left--wrapper--date">
+									{new Date().toLocaleDateString("nl-NL", this.dateStringOptions)}
+								</h2>
 							</div>
 						</div>
 						<div className="header--container--right">
-							<p className="header--container--right--placeholder">Plek om te tonen welke dingen er wel of niet aan staan?</p>
+							<p className="header--container--right--placeholder">
+								Plek om te tonen welke dingen er wel of niet aan staan?
+							</p>
 						</div>
 					</div>
 				</header>
