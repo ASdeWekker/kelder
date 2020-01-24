@@ -8,6 +8,9 @@ $bg-alt: $bg
 $text: lighten(#2c3e50, 30%)
 $text-alt: #ddd
 
+$buttonOff: darken($text, 20%)
+$buttonOn: lighten($text, 20%)
+
 $headerHeight: 100px
 $marginLeft: 32px
 
@@ -77,7 +80,7 @@ html
 								&--text
 									font-weight: 400
 									letter-spacing: -2px
-									margin: 26px 0 -8px
+									margin: 26px 0 -5px
 
 								&--date
 									font-weight: 100
@@ -91,6 +94,7 @@ html
 
 							&--placeholder
 								height: 100%
+								margin-right: 30px
 								width: 70%
 
 				.body
@@ -135,7 +139,6 @@ html
 									margin: 0
 
 								&--toggle
-									// color: $bg
 									font-size: 1.2em
 									margin-left: 0.3em
 
@@ -206,7 +209,6 @@ html
 								padding: 0 0.6em
 
 								&--icon
-									// color: $bg
 									font-size: 2em
 									margin-right: 6px
 

@@ -61,7 +61,7 @@ html body #root .App .header--container--left--wrapper h1, html body #root .App 
 html body #root .App .header--container--left--wrapper--text {
   font-weight: 400;
   letter-spacing: -2px;
-  margin: 26px 0 -8px;
+  margin: 26px 0 -5px;
 }
 html body #root .App .header--container--left--wrapper--date {
   font-weight: 100;
@@ -75,6 +75,7 @@ html body #root .App .header--container--right {
 }
 html body #root .App .header--container--right--placeholder {
   height: 100%;
+  margin-right: 30px;
   width: 70%;
 }
 html body #root .App .body {
