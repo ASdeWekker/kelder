@@ -1,3 +1,4 @@
+client/build/
 .sass-cache/
 *.css.map
 npm-debug.log*
