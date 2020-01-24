@@ -3,11 +3,10 @@
 
 
 // Variables.
-$bg: #fff
-$bg-alt: #ededed
-$text: #333
-$text-alt: #808080
-$text-alt-2: #7a7a7a
+$bg: #333
+$bg-alt: lighten(#2c3e50, 20%)
+$text: #ddd
+$text-alt: lighten($bg-alt, 15%)
 
 $headerHeight: 100px
 $marginLeft: 32px
@@ -27,6 +26,7 @@ html, body, #root, .App
 button
 	background: none
 	border: none
+	color: $text
 	font-family: Arial, sans-serif
 	padding: 0
 
@@ -129,6 +129,7 @@ html
 									margin: 0
 
 								&--toggle
+									color: $bg
 									font-size: 1.2em
 									margin-left: 0.3em
 
@@ -161,7 +162,7 @@ html
 
 								&--circle
 									align-items: center
-									background: $bg
+									background: lighten($bg, 8%)
 									border-radius: 50%
 									color: $text-alt
 									display: flex
@@ -197,6 +198,7 @@ html
 								padding: 0 0.6em
 
 								&--icon
+									color: $bg
 									font-size: 2em
 									margin-right: 6px
 
