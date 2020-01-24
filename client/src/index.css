@@ -13,14 +13,19 @@ html, body, #root, .App {
 button {
   background: none;
   border: none;
-  color: #ddd;
+  color: #262626;
   font-family: Arial, sans-serif;
   padding: 0;
 }
 
+a {
+  color: #262626;
+  text-decoration: none;
+}
+
 html {
   box-sizing: border-box;
-  color: #ddd;
+  color: #262626;
   font-family: Arial, sans-serif;
   font-size: 14px;
 }
@@ -31,6 +36,7 @@ html body #root .App .header {
 }
 html body #root .App .header--container {
   clear: both;
+  color: #ddd;
   height: 100%;
   min-height: 100px;
   width: 100%;
@@ -80,7 +86,7 @@ html body #root .App .body .container {
   width: 100%;
 }
 html body #root .App .body .container--header {
-  color: #7997b5;
+  color: #ddd;
   font-size: 1.3em;
   font-weight: 400;
   height: 22px;
@@ -98,7 +104,7 @@ html body #root .App .body .container--wrapper {
   -webkit-overflow-scrolling: touch;
 }
 html body #root .App .body .container--wrapper--button {
-  background: #507192;
+  background: #ddd;
   border-radius: 20px;
   display: inline-block;
   margin-right: 10px;
@@ -112,7 +118,6 @@ html body #root .App .body .container--wrapper--button--link {
   margin: 0;
 }
 html body #root .App .body .container--wrapper--button--toggle {
-  color: #333;
   font-size: 1.2em;
   margin-left: 0.3em;
 }
@@ -127,7 +132,7 @@ html body #root .App .bottom {
   width: 100%;
 }
 html body #root .App .bottom .most-used-places {
-  background: #507192;
+  background: #ddd;
   height: 96px;
   width: 100%;
 }
@@ -147,7 +152,7 @@ html body #root .App .bottom .most-used-places .container--button--circle {
   align-items: center;
   background: #474747;
   border-radius: 50%;
-  color: #7997b5;
+  color: #ddd;
   display: flex;
   font-size: 40.6px;
   height: 62px;
@@ -174,14 +179,13 @@ html body #root .App .bottom .home-control .container {
 }
 html body #root .App .bottom .home-control .container--button {
   align-items: center;
-  background: #507192;
+  background: #ddd;
   border-radius: 30px;
   display: flex;
   height: 50px;
   padding: 0 0.6em;
 }
 html body #root .App .bottom .home-control .container--button--icon {
-  color: #333;
   font-size: 2em;
   margin-right: 6px;
 }

@@ -4,9 +4,9 @@
 
 // Variables.
 $bg: #333
-$bg-alt: lighten(#2c3e50, 20%)
-$text: #ddd
-$text-alt: lighten($bg-alt, 15%)
+$bg-alt: #ddd
+$text: darken($bg, 5%)
+$text-alt: $bg-alt
 
 $headerHeight: 100px
 $marginLeft: 32px
@@ -30,6 +30,10 @@ button
 	font-family: Arial, sans-serif
 	padding: 0
 
+a
+	color: $text
+	text-decoration: none
+
 
 // Starting the normal styling.
 html
@@ -48,6 +52,7 @@ html
 
 					&--container
 						clear: both
+						color: $bg-alt
 						height: 100%
 						min-height: $headerHeight
 						width: 100%
@@ -129,7 +134,7 @@ html
 									margin: 0
 
 								&--toggle
-									color: $bg
+									// color: $bg
 									font-size: 1.2em
 									margin-left: 0.3em
 
@@ -198,7 +203,7 @@ html
 								padding: 0 0.6em
 
 								&--icon
-									color: $bg
+									// color: $bg
 									font-size: 2em
 									margin-right: 6px
 
