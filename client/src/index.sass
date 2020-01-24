@@ -4,9 +4,9 @@
 
 // Variables.
 $bg: #333
-$bg-alt: #ddd
-$text: darken($bg, 5%)
-$text-alt: $bg-alt
+$bg-alt: $bg
+$text: lighten(#2c3e50, 30%)
+$text-alt: #ddd
 
 $headerHeight: 100px
 $marginLeft: 32px
@@ -52,7 +52,7 @@ html
 
 					&--container
 						clear: both
-						color: $bg-alt
+						color: $text-alt
 						height: 100%
 						min-height: $headerHeight
 						width: 100%
@@ -121,6 +121,7 @@ html
 
 							&--button
 								background: $bg-alt
+								border: 2px solid $text
 								border-radius: 20px
 								display: inline-block
 								margin-right: 10px
@@ -197,6 +198,7 @@ html
 							&--button
 								align-items: center
 								background: $bg-alt
+								border: 2px solid $text
 								border-radius: 30px
 								display: flex
 								height: 50px
