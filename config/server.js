@@ -1,6 +1,6 @@
 // Requirements.
-const app = require("../pc-api")
-const debug = require("debug")("pc-api:server")
+const app = require("../kelder-api")
+const debug = require("debug")("kelder-api:server")
 const http = require("http")
 
 // Create the server.
