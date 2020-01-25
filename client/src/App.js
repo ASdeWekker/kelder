@@ -11,9 +11,14 @@ class App extends Component {
 		fetch("/api/pc/on").then(console.log("PC: ON"))
 	}
 
-	// Fetches for turning the ledstrip on or off.
+	// Fetch for turning the ledstrip on or off.
 	ledToggle = () => {
 		fetch("http://192.168.1.220/power?power=toggle").then(console.log("Ledstrip: TOGGLED"))
+	}
+
+	// Fetch for turning the amp plug on or off.
+	ampToggle = () => {
+		fetch("http://192.168.1.223/power?power=toggle").then(console.log("Amplifier: TOGGLED"))
 	}
 
 	render() {
@@ -94,11 +99,15 @@ class App extends Component {
 					<div className="most-used-places">
 						<div className="container">
 							<button className="container--button pihole">
-								<div className="container--button--circle"><i className="fab fa-adversal"></i></div>
+								<div className="container--button--circle">
+									<a href="http://192.168.1.90:81/admin"><i className="fab fa-adversal"></i></a>
+								</div>
 								<p className="container--button--text">Pihole</p>
 							</button>
 							<button className="container--button apache">
-								<div className="container--button--circle"><i className="fas fa-cloud"></i></div>
+								<div className="container--button--circle">
+									<a href="http://web.alexdw.nl"><i className="fas fa-cloud"></i></a>
+								</div>
 								<p className="container--button--text">Apache</p>
 							</button>
 							<button className="container--button docker">
@@ -118,7 +127,9 @@ class App extends Component {
 					<div className="home-control">
 						<div className="container">
 							<div className="container--button plugs">
-								<button className="container--button--icon"><i className="fas fa-power-off"></i></button>
+								<button className="container--button--icon" onClick={this.ampToggle}>
+									<i className="fas fa-power-off"></i>
+								</button>
 								<button className="container--button--text">Plugs</button>
 							</div>
 							<div className="container--button ledstrip">
