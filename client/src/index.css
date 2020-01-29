@@ -14,6 +14,7 @@ button {
   background: none;
   border: none;
   color: #698bac;
+  cursor: pointer;
   font-family: Arial, sans-serif;
   padding: 0;
 }
@@ -133,6 +134,34 @@ html body #root .App .bottom {
   position: fixed;
   width: 100%;
 }
+html body #root .App .bottom .home-control {
+  height: 110px;
+  width: 100%;
+}
+html body #root .App .bottom .home-control .container {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 110px;
+  justify-content: space-evenly;
+  width: 100%;
+}
+html body #root .App .bottom .home-control .container--button {
+  align-items: center;
+  background: #333;
+  border: 2px solid #698bac;
+  border-radius: 30px;
+  display: flex;
+  height: 50px;
+  padding: 0 0.6em;
+}
+html body #root .App .bottom .home-control .container--button--icon {
+  font-size: 2em;
+  margin-right: 6px;
+}
+html body #root .App .bottom .home-control .container--button--text {
+  font-size: 1.4em;
+}
 html body #root .App .bottom .most-used-places {
   background: #333;
   height: 96px;
@@ -168,33 +197,12 @@ html body #root .App .bottom .most-used-places .container--button--text {
   text-align: center;
   width: 62px;
 }
-html body #root .App .bottom .home-control {
-  height: 110px;
-  width: 100%;
+
+#root .App .bottom .home-control .container .menu-active {
+  background: #698bac;
 }
-html body #root .App .bottom .home-control .container {
-  align-items: center;
-  display: flex;
-  flex-flow: row nowrap;
-  height: 110px;
-  justify-content: space-evenly;
-  width: 100%;
-}
-html body #root .App .bottom .home-control .container--button {
-  align-items: center;
-  background: #333;
-  border: 2px solid #698bac;
-  border-radius: 30px;
-  display: flex;
-  height: 50px;
-  padding: 0 0.6em;
-}
-html body #root .App .bottom .home-control .container--button--icon {
-  font-size: 2em;
-  margin-right: 6px;
-}
-html body #root .App .bottom .home-control .container--button--text {
-  font-size: 1.4em;
+#root .App .bottom .home-control .container .menu-active button {
+  color: #333;
 }
 
 /*# sourceMappingURL=index.css.map */

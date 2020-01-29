@@ -126,19 +126,19 @@ class App extends Component {
 					</div>
 					<div className="home-control">
 						<div className="container">
-							<div className="container--button plugs">
+							<div id="plugs" className="container--button">
 								<button className="container--button--icon" onClick={this.ampToggle}>
 									<i className="fas fa-power-off"></i>
 								</button>
 								<button className="container--button--text">Plugs</button>
 							</div>
-							<div className="container--button ledstrip">
+							<div id="ledstrip" className="container--button menu-active">
 								<button className="container--button--icon" onClick={this.ledToggle}>
 									<i className="fas fa-power-off"></i>
 								</button>
 								<button className="container--button--text">Ledstrip</button>
 							</div>
-							<div className="container--button pc">
+							<div id="pc" className="container--button">
 								<button className="container--button--icon" onClick={this.pcOn}>
 									<i className="fas fa-power-off"></i>
 								</button>
