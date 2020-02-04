@@ -14,7 +14,8 @@ const router = express.Router()
 function execFunc(command,message) {
 	exec(command, (err, stdout, stderr) => {
 		if (err || stderr) {
-			console.error(`There was an error: ${err}`)
+			console.error("There was an error:")
+			console.log(err || stderr)
 			return
 		} else {
 			console.log(message)
@@ -33,23 +34,7 @@ router.get("/pc/off", (req, res) => {
 })
 
 router.get("/led/toggle", (req, res) => {
-	exec("/usr/bin/python3 /home/alex/dotfiles/scripts/python/ledstrip.py -p toggle", (err, stdout, stderr) => {
-		if (err) {
-			console.error(`exec error: ${err}`)
-			return
-		}
-		if (stderr) {
-			console.error("stderr:")
-			res.json({ "message": "There was an error, check the log" })
-		}
-		if (stdout) {
-			console.log("stdout:")
-			res.json({ "message": "The ledstrip has been toggled" })
-		}
-		console.log(stderr)
-		console.log(stdout)
-		// logger.debug("Something happened with the ledstrip")
-	})
+	execFunc("/usr/bin/python3 /home/alex/dotfiles/scripts/python/ledstrip.py -p toggle", "The ledstrip has been toggled")
 	res.send("The ledstrip has been toggled")
 })
 
