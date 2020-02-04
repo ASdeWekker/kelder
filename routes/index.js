@@ -1,8 +1,16 @@
 // Deps.
 const express = require("express")
 const { exec } = require("child_process")
+const log4js = require("log4js")
+
+// Declare the router.
 const router = express.Router()
 
+// Enable logging.
+let logger = log4js.getLogger()
+logger.level = "debug"
+
+// A function to quickly issue a command-line command and a console.log message.
 function execFunc(command,message) {
 	exec(command, (err, stdout, stderr) => {
 		if (err || stderr) {
@@ -21,30 +29,28 @@ router.get("/pc/on", (req, res) => {
 })
 
 router.get("/pc/off", (req, res) => {
-	res.send("This turns the pc off")
+	res.send("The pc hasn't really been switched off")
 })
 
-// router.get("led/toggle", (req, res) => {
-// 	execFunc("curl -d 'power=toggle' 192.168.1.220/power", "The ledstrip has been toggled")
-// 	res.send("The ledstrip has been toggled")
-// })
-
 router.get("/led/toggle", (req, res) => {
-	exec("/usr/bin/python /home/alex/dotfiles/scripts/python/ledstrip.py -p toggle", (err, stdout, stderr) => {
+	exec("/usr/bin/python3 /home/alex/dotfiles/scripts/python/ledstrip.py -p toggle", (err, stdout, stderr) => {
 		if (err) {
 			console.error(`exec error: ${err}`)
 			return
 		}
 		if (stderr) {
-			console.error(`stderr: ${stderr}`)
+			console.error("stderr:")
 			res.json({ "message": "There was an error, check the log" })
 		}
 		if (stdout) {
-			console.log(`stdout: ${stdout}`)
-			res.json({ "message": "The pc has been powered on" })
+			console.log("stdout:")
+			res.json({ "message": "The ledstrip has been toggled" })
 		}
+		console.log(stderr)
+		console.log(stdout)
+		logger.debug("Something happened with the ledstrip")
 	})
-	res.send("ledstrip toggle")
+	res.send("The ledstrip has been toggled")
 })
 
 module.exports = router
