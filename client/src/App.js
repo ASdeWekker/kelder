@@ -13,7 +13,7 @@ class App extends Component {
 
 	// Fetch for turning the ledstrip on or off.
 	ledToggle = () => {
-		fetch("http://192.168.1.220/power?power=toggle").then(console.log("Ledstrip: TOGGLED"))
+		fetch("/api/led/toggle").then(console.log("Ledstrip: TOGGLED")) // old url http://192.168.1.220/power?power=toggle
 	}
 
 	// Fetch for turning the amp plug on or off.
