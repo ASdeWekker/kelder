@@ -1,14 +1,14 @@
 // Deps.
 const express = require("express")
 const { exec } = require("child_process")
-const log4js = require("log4js")
+// const log4js = require("log4js")
 
 // Declare the router.
 const router = express.Router()
 
 // Enable logging.
-let logger = log4js.getLogger()
-logger.level = "debug"
+// let logger = log4js.getLogger()
+// logger.level = "debug"
 
 // A function to quickly issue a command-line command and a console.log message.
 function execFunc(command,message) {
@@ -48,7 +48,7 @@ router.get("/led/toggle", (req, res) => {
 		}
 		console.log(stderr)
 		console.log(stdout)
-		logger.debug("Something happened with the ledstrip")
+		// logger.debug("Something happened with the ledstrip")
 	})
 	res.send("The ledstrip has been toggled")
 })
