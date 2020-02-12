@@ -132,7 +132,7 @@ class App extends Component {
 								</button>
 								<button className="container--button--text">Plugs</button>
 							</div>
-							<div id="ledstrip" className="container--button menu-active">
+							<div id="ledstrip" className="container--button">
 								<button className="container--button--icon" onClick={this.ledToggle}>
 									<i className="fas fa-power-off"></i>
 								</button>
