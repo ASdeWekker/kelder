@@ -17,8 +17,8 @@ class App extends Component {
 	}
 
 	// Fetch for turning the amp plug on or off.
-	ampToggle = () => {
-		fetch("http://192.168.1.223/power?power=toggle").then(console.log("Amplifier: TOGGLED"))
+	switchToggle = () => {
+		fetch("/api/wifi/A/toggle").then(console.log("All: TOGGLED"))
 	}
 
 	render() {
@@ -127,7 +127,7 @@ class App extends Component {
 					<div className="home-control">
 						<div className="container">
 							<div id="plugs" className="container--button">
-								<button className="container--button--icon" onClick={this.ampToggle}>
+								<button className="container--button--icon" onClick={this.switchToggle}>
 									<i className="fas fa-power-off"></i>
 								</button>
 								<button className="container--button--text">Plugs</button>
