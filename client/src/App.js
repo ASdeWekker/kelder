@@ -9,8 +9,6 @@ class App extends Component {
 		super()
 	}
 
-	// Toggle the right menu.
-
 	render() {
 		return (
 			<div className="App">

@@ -1,3 +1,19 @@
+@keyframes right-menu-in {
+  0% {
+    left: 687px;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes right-menu-out {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 687px;
+  }
+}
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -34,6 +50,45 @@ html body #root .App .header {
   height: auto;
   min-height: 100px;
   width: 100%;
+}
+html body #root .App .header .right-menu {
+  animation: right-menu-out 1s ease-out;
+  background: none;
+  height: 100%;
+  left: 687px;
+  position: absolute;
+  width: 100%;
+  z-index: 9999;
+}
+html body #root .App .header .right-menu--opaque, html body #root .App .header .right-menu--menu {
+  height: 100%;
+  float: left;
+}
+html body #root .App .header .right-menu--opaque {
+  background: rgba(0, 0, 0, 0.6);
+  width: 20%;
+}
+html body #root .App .header .right-menu--menu {
+  background: #333;
+  width: 80%;
+}
+html body #root .App .header .right-menu--menu--h1 {
+  margin: 16px;
+  width: 90%;
+}
+html body #root .App .header .right-menu--menu--version-number {
+  bottom: 10px;
+  color: #ddd;
+  margin: 0;
+  position: absolute;
+  right: 10px;
+}
+html body #root .App .header .right-menu--menu--version-number em {
+  color: #698bac;
+}
+html body #root .App .header .right-menu-active {
+  animation: right-menu-in 0.6s ease-out;
+  left: 0;
 }
 html body #root .App .header--container {
   clear: both;
