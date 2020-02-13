@@ -9,15 +9,21 @@ class MostUsedPlaces extends Component {
 		return (
 			<div className="most-used-places">
 				<div className="container">
-					<button className="container--button pihole">
+					<button
+						className="container--button pihole"
+						onClick={() => {window.location.href = "http://192.168.1.90:81/admin"}}
+					>
 						<div className="container--button--circle">
-							<a href="http://192.168.1.90:81/admin"><i className="fab fa-adversal"></i></a>
+							<i className="fab fa-adversal"></i>
 						</div>
 						<p className="container--button--text">Pihole</p>
 					</button>
-					<button className="container--button apache">
+					<button
+						className="container--button apache"
+						onClick={() => {window.location.href = "http://web.alexdw.nl"}}
+					>
 						<div className="container--button--circle">
-							<a href="http://web.alexdw.nl"><i className="fas fa-cloud"></i></a>
+							<i className="fas fa-cloud"></i>
 						</div>
 						<p className="container--button--text">Apache</p>
 					</button>
