@@ -6,6 +6,7 @@ class App extends Component {
 		this.dateStringOptions = { month: "long", day: "numeric" }
 	}
 
+	// Toggle the right menu
 	// A fetch for turning on the pc, hasn't been tested yet.
 	pcOn = () => {
 		fetch("/api/pc/on").then(console.log("PC: ON"))
@@ -38,6 +39,10 @@ class App extends Component {
 							<p className="header--container--right--placeholder">
 								Plek om te tonen welke dingen er wel of niet aan staan?
 							</p>
+							<button
+								className="header--container--right--right-menu-button"
+								onClick={this.toggleRightMenu}
+							>M E N U</button>
 						</div>
 					</div>
 				</header>

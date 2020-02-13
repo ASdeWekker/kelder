@@ -76,8 +76,17 @@ html body #root .App .header--container--right {
 }
 html body #root .App .header--container--right--placeholder {
   height: 100%;
-  margin-right: 30px;
+  margin-right: 10px;
   width: 70%;
+}
+html body #root .App .header--container--right--right-menu-button {
+  border: 2px solid #698bac;
+  border-radius: 10px;
+  font-size: 1.1em;
+  height: 70%;
+  margin: 3% 0.5em 0 0;
+  padding: 0.3em;
+  width: 26px;
 }
 html body #root .App .body {
   height: auto;
