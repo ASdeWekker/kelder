@@ -45,6 +45,7 @@ html {
   color: #698bac;
   font-family: Arial, sans-serif;
   font-size: 14px;
+  overflow: hidden;
 }
 html body #root .App .header {
   height: auto;
