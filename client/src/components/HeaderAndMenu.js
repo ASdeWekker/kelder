@@ -22,12 +22,14 @@ class HeaderAndMenu extends Component {
 		return (
 			<header className="header">
 				<div className={this.state.menuActive ? "right-menu-active right-menu" : "right-menu"}>
-					<div className="right-menu--opaque" onClick={this.handleClick}></div>
-					<div className="right-menu--menu">
-						<h1 className="right-menu--menu--h1" onClick={this.handleClick}>Menutjih</h1>
-						<h6 className="right-menu--menu--version-number">Version:&nbsp;
-							<em>{this.versionNumber}</em>
-						</h6>
+					<div className={this.state.menuActive ? "right-menu--container right-menu-container-active" : "right-menu--container"}>
+						<div className="right-menu--container--outside-menu" onClick={this.handleClick}></div>
+						<div className="right-menu--container--menu">
+							<h1 className="right-menu--container--menu--h1" onClick={this.handleClick}>Menutjih</h1>
+							<h6 className="right-menu--container--menu--version-number">Version:&nbsp;
+								<em>{this.versionNumber}</em>
+							</h6>
+						</div>
 					</div>
 				</div>
 				<div className="header--container">
