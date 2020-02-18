@@ -22,6 +22,7 @@ html, body, #root, .App {
   background: #333;
   height: 100%;
   margin: 0;
+  overflow: hidden;
   padding: 0;
   width: 100%;
 }
@@ -45,7 +46,6 @@ html {
   color: #698bac;
   font-family: Arial, sans-serif;
   font-size: 14px;
-  overflow: hidden;
 }
 html body #root .App .header {
   height: auto;
