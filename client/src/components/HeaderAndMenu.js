@@ -5,10 +5,24 @@ class HeaderAndMenu extends Component {
 		super()
 		this.dateStringOptions = { month: "long", day: "numeric" }
 		this.state = {
-			menuActive: false
+			menuActive: false,
+			date: new Date()
 		}
 		this.handleClick = this.handleClick.bind(this)
 		this.versionNumber = "1.0.17"
+	}
+
+	// Lifecycle things.
+	componentDidMount() {
+		this.timerID = setInterval(() => this.tick(), 1000)
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.timerID)
+	}
+
+	tick() {
+		this.setState({ date: new Date() })
 	}
 
 	// Toggle the right menu.
@@ -37,7 +51,10 @@ class HeaderAndMenu extends Component {
 						<div className="header--container--left--wrapper">
 							<h1 className="header--container--left--wrapper--text">Kelder</h1>
 							<h2 className="header--container--left--wrapper--date">
-								{new Date().toLocaleDateString("nl-NL", this.dateStringOptions)}
+								{this.state.date.toLocaleDateString("nl-NL", this.dateStringOptions)}
+							</h2>
+							<h2 className="header--container--left--wrapper--date">
+
 							</h2>
 						</div>
 					</div>
