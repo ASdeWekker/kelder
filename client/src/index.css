@@ -56,8 +56,8 @@ html body #root .App .header .right-menu {
   animation: right-menu-slide-out 1s ease-out;
   background: none;
   height: 100%;
-  left: 700px;
   position: absolute;
+  right: 100vw;
   width: 100%;
   z-index: 9999;
 }
@@ -94,7 +94,7 @@ html body #root .App .header .right-menu--container--menu--version-number em {
 }
 html body #root .App .header .right-menu-active {
   animation: right-menu-slide-in 0.6s ease-out;
-  left: 0;
+  right: 0;
 }
 html body #root .App .header--container {
   clear: both;
