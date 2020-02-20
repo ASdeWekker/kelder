@@ -1,23 +1,21 @@
 import React, { Component } from "react"
+import Menu from "./Menu"
 
-class HeaderAndMenu extends Component {
+class Header extends Component {
 	constructor(props) {
 		super()
 
 		// Set the state for the date.
 		this.state = {
-			date: new Date()
+			date: new Date(),
+			// rightMenuRef: null
 		}
 		// Set the date options.
 		this.dateStringOptions = { month: "long", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" }
 		// Bind this to the click functions.
 		this.handleClick = this.handleClick.bind(this)
-		this.handleAnotherClick = this.handleAnotherClick.bind(this)
-		// Just a random version version number I'll sometimes update.
-		this.versionNumber = "1.0.22"
 		// Get the right-menu and right-menu--container.
 		this.rightMenu = React.createRef()
-		this.rightMenuContainer = null
 	}
 
 	// Lifecycle things for the clock example.
@@ -25,24 +23,17 @@ class HeaderAndMenu extends Component {
 	componentWillUnmount() { clearInterval(this.timerID) }
 	tick() { this.setState({ date: new Date() }) }
 
-	// Toggle and untoggle the right menu.
+	// Toggle the right menu.
 	handleClick() {
-		this.rightMenu.current.classList.remove("right-menu-inactive"); this.rightMenu.current.classList.add("right-menu-active")
-	}
-	handleAnotherClick() {
-		this.rightMenu.current.classList.remove("right-menu-active"); this.rightMenu.current.classList.add("right-menu-inactive")
+		this.rightMenu.current.classList.remove("right-menu-inactive")
+		this.rightMenu.current.classList.add("right-menu-active")
 	}
 
 	render() {
 		return (
 			<header className="header">
 				<div ref={this.rightMenu} className="right-menu">
-					<div className="right-menu--menu">
-						<h1 className="right-menu--menu--h1" onClick={this.handleAnotherClick}>Menutjih</h1>
-						<h6 className="right-menu--menu--version-number">Version:&nbsp;
-							<em>{this.versionNumber}</em>
-						</h6>
-					</div>
+					<Menu rightMenuRef={this.rightMenu} />
 				</div>
 				<div className="header--container">
 					<div className="header--container--left">
@@ -65,4 +56,4 @@ class HeaderAndMenu extends Component {
 	}
 }
 
-export default HeaderAndMenu
+export default Header

@@ -87,6 +87,10 @@ html body #root .App .header .right-menu--menu--h1 {
   margin: 16px;
   width: 90vw;
 }
+html body #root .App .header .right-menu--menu--h1 span {
+  cursor: pointer;
+  float: right;
+}
 html body #root .App .header .right-menu--menu--version-number {
   bottom: 10px;
   color: #ddd;

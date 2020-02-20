@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import HomeControl from "./components/HomeControl"
 import MostUsedPlaces from "./components/MostUsedPlaces"
-import Penp from "./components/Penp"
-import HeaderAndMenu from "./components/HeaderAndMenu"
+import Header from "./components/Header"
 
 class App extends Component {
 	constructor(props) {
@@ -12,8 +11,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<HeaderAndMenu />
-				<Penp />
+				<Header />
 				<section className="bottom">
 					<MostUsedPlaces />
 					<HomeControl />
