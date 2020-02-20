@@ -12,18 +12,10 @@ class HeaderAndMenu extends Component {
 		this.versionNumber = "1.0.17"
 	}
 
-	// Lifecycle things.
-	componentDidMount() {
-		this.timerID = setInterval(() => this.tick(), 1000)
-	}
-
-	componentWillUnmount() {
-		clearInterval(this.timerID)
-	}
-
-	tick() {
-		this.setState({ date: new Date() })
-	}
+	// Lifecycle things for the clock example.
+	componentDidMount() { this.timerID = setInterval(() => this.tick(), 1000) }
+	componentWillUnmount() { clearInterval(this.timerID) }
+	tick() { this.setState({ date: new Date() }) }
 
 	// Toggle the right menu.
 	handleClick() {
