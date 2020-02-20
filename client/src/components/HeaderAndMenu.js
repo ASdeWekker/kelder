@@ -3,13 +3,21 @@ import React, { Component } from "react"
 class HeaderAndMenu extends Component {
 	constructor(props) {
 		super()
-		this.dateStringOptions = { month: "long", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" }
+
+		// Set the state for the date.
 		this.state = {
-			menuActive: false,
 			date: new Date()
 		}
+		// Set the date options.
+		this.dateStringOptions = { month: "long", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" }
+		// Bind this to the click functions.
 		this.handleClick = this.handleClick.bind(this)
-		this.versionNumber = "1.0.17"
+		this.handleAnotherClick = this.handleAnotherClick.bind(this)
+		// Just a random version version number I'll sometimes update.
+		this.versionNumber = "1.0.22"
+		// Get the right-menu and right-menu--container.
+		this.rightMenu = React.createRef()
+		this.rightMenuContainer = null
 	}
 
 	// Lifecycle things for the clock example.
@@ -17,25 +25,23 @@ class HeaderAndMenu extends Component {
 	componentWillUnmount() { clearInterval(this.timerID) }
 	tick() { this.setState({ date: new Date() }) }
 
-	// Toggle the right menu.
+	// Toggle and untoggle the right menu.
 	handleClick() {
-		this.setState(state => ({
-			menuActive: !state.menuActive
-		}))
+		this.rightMenu.current.classList.remove("right-menu-inactive"); this.rightMenu.current.classList.add("right-menu-active")
+	}
+	handleAnotherClick() {
+		this.rightMenu.current.classList.remove("right-menu-active"); this.rightMenu.current.classList.add("right-menu-inactive")
 	}
 
 	render() {
 		return (
 			<header className="header">
-				<div className={this.state.menuActive ? "right-menu right-menu-active" : "right-menu"}>
-					<div className="right-menu--container">
-						<div className="right-menu--container--outside-menu" onClick={this.handleClick}></div>
-						<div className="right-menu--container--menu">
-							<h1 className="right-menu--container--menu--h1">Menutjih</h1>
-							<h6 className="right-menu--container--menu--version-number">Version:&nbsp;
-								<em>{this.versionNumber}</em>
-							</h6>
-						</div>
+				<div ref={this.rightMenu} className="right-menu">
+					<div className="right-menu--menu">
+						<h1 className="right-menu--menu--h1" onClick={this.handleAnotherClick}>Menutjih</h1>
+						<h6 className="right-menu--menu--version-number">Version:&nbsp;
+							<em>{this.versionNumber}</em>
+						</h6>
 					</div>
 				</div>
 				<div className="header--container">
