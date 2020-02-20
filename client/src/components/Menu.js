@@ -23,9 +23,7 @@ class Menu extends Component {
 				<h1 className="right-menu--menu--h1">Practice &amp; Projects
 					<span onClick={this.handleAnotherClick}><i className="fas fa-times"></i></span>
 				</h1>
-
 				<Penp />
-
 				<h6 className="right-menu--menu--version-number">Version:&nbsp;
 					<em>{this.versionNumber}</em>
 				</h6>
