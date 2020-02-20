@@ -91,6 +91,54 @@ html body #root .App .header .right-menu--menu--h1 span {
   cursor: pointer;
   float: right;
 }
+html body #root .App .header .right-menu--menu .body {
+  height: auto;
+  width: 100%;
+}
+html body #root .App .header .right-menu--menu .body .container {
+  height: 80px;
+  width: 100%;
+}
+html body #root .App .header .right-menu--menu .body .container--header {
+  color: #ddd;
+  font-size: 1.3em;
+  font-weight: 400;
+  height: 22px;
+  line-height: 22px;
+  margin: 0 0 8px 32px;
+  text-decoration: underline;
+}
+html body #root .App .header .right-menu--menu .body .container--wrapper {
+  height: 50px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  white-space: nowrap;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+html body #root .App .header .right-menu--menu .body .container--wrapper--button {
+  background: #404040;
+  border: 2px solid #698bac;
+  border-radius: 20px;
+  display: inline-block;
+  margin-right: 10px;
+  padding: 0.7em 0.8em;
+}
+html body #root .App .header .right-menu--menu .body .container--wrapper--button:first-child {
+  margin-left: 20px;
+}
+html body #root .App .header .right-menu--menu .body .container--wrapper--button--link {
+  font-size: 1.2em;
+  margin: 0;
+}
+html body #root .App .header .right-menu--menu .body .container--wrapper--button--toggle {
+  font-size: 1.2em;
+  margin-left: 0.3em;
+}
+html body #root .App .header .right-menu--menu .body .container.projects {
+  margin-top: 10px;
+}
 html body #root .App .header .right-menu--menu--version-number {
   bottom: 10px;
   color: #ddd;
@@ -161,54 +209,6 @@ html body #root .App .header--container--right--right-menu-button {
   margin: 3% 0.5em 0 0;
   padding: 0.3em;
   width: 26px;
-}
-html body #root .App .body {
-  height: auto;
-  width: 100%;
-}
-html body #root .App .body .container {
-  height: 80px;
-  width: 100%;
-}
-html body #root .App .body .container--header {
-  color: #ddd;
-  font-size: 1.3em;
-  font-weight: 400;
-  height: 22px;
-  line-height: 22px;
-  margin: 0 0 8px 32px;
-  text-decoration: underline;
-}
-html body #root .App .body .container--wrapper {
-  height: 50px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  white-space: nowrap;
-  width: 100%;
-  -webkit-overflow-scrolling: touch;
-}
-html body #root .App .body .container--wrapper--button {
-  background: #333;
-  border: 2px solid #698bac;
-  border-radius: 20px;
-  display: inline-block;
-  margin-right: 10px;
-  padding: 0.7em 0.8em;
-}
-html body #root .App .body .container--wrapper--button:first-child {
-  margin-left: 20px;
-}
-html body #root .App .body .container--wrapper--button--link {
-  font-size: 1.2em;
-  margin: 0;
-}
-html body #root .App .body .container--wrapper--button--toggle {
-  font-size: 1.2em;
-  margin-left: 0.3em;
-}
-html body #root .App .body .container.projects {
-  margin-top: 10px;
 }
 html body #root .App .bottom {
   bottom: 0;

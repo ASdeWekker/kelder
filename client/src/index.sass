@@ -4,7 +4,7 @@
 
 // Variables.
 $bg: #333
-$bg-alt: $bg
+$bg-alt: lighten($bg, 5%)
 $text: lighten(#2c3e50, 30%)
 $text-alt: #ddd
 
@@ -84,7 +84,7 @@ html
 					width: 100vw
 
 					.right-menu
-						background: lighten($bg, 5%)
+						background: $bg-alt
 						height: 100vh
 						overflow: hidden
 						position: absolute
@@ -105,6 +105,54 @@ html
 								span
 									cursor: pointer
 									float: right
+
+							.body
+								height: auto
+								width: 100%
+
+								.container
+									height: 80px
+									width: 100%
+
+									&--header
+										color: $text-alt
+										font-size: 1.3em
+										font-weight: 400
+										height: 22px
+										line-height: 22px
+										margin: 0 0 8px $marginLeft
+										text-decoration: underline
+
+									&--wrapper
+										height: 50px
+										overflow-x: scroll
+										overflow-y: hidden
+										scrollbar-width: none
+										white-space: nowrap
+										width: 100%
+										-webkit-overflow-scrolling: touch
+
+										&--button
+											background: $bg-alt
+											border: 2px solid $text
+											border-radius: 20px
+											display: inline-block
+											margin-right: 10px
+											padding: 0.7em 0.8em
+
+											&:first-child
+												margin-left: 20px
+
+											&--link
+												font-size: 1.2em
+												margin: 0
+
+											&--toggle
+												font-size: 1.2em
+												margin-left: 0.3em
+
+								.container.projects
+									margin-top: 10px
 
 							&--version-number
 								bottom: 10px
@@ -177,54 +225,6 @@ html
 								padding: 0.3em
 								width: 26px
 
-				.body
-					// display: none
-					height: auto
-					width: 100%
-
-					.container
-						height: 80px
-						width: 100%
-
-						&--header
-							color: $text-alt
-							font-size: 1.3em
-							font-weight: 400
-							height: 22px
-							line-height: 22px
-							margin: 0 0 8px $marginLeft
-							text-decoration: underline
-
-						&--wrapper
-							height: 50px
-							overflow-x: scroll
-							overflow-y: hidden
-							scrollbar-width: none
-							white-space: nowrap
-							width: 100%
-							-webkit-overflow-scrolling: touch
-
-							&--button
-								background: $bg-alt
-								border: 2px solid $text
-								border-radius: 20px
-								display: inline-block
-								margin-right: 10px
-								padding: 0.7em 0.8em
-
-								&:first-child
-									margin-left: 20px
-
-								&--link
-									font-size: 1.2em
-									margin: 0
-
-								&--toggle
-									font-size: 1.2em
-									margin-left: 0.3em
-
-					.container.projects
-						margin-top: 10px
 
 				.bottom
 					bottom: 0
@@ -247,7 +247,7 @@ html
 
 							&--button
 								align-items: center
-								background: $bg-alt
+								background: $bg
 								border: 2px solid $text
 								border-radius: 30px
 								display: flex
@@ -262,7 +262,7 @@ html
 									font-size: 1.4em
 
 					.most-used-places
-						background: $bg-alt
+						background: $bg
 						height: 96px
 						width: 100%
 
@@ -304,4 +304,4 @@ html
 	background: $text
 
 	button
-		color: $bg-alt
+		color: $bg
