@@ -7,8 +7,8 @@ html
 				.header
 					.right-menu
 						background: $bg-alt
+						display: none
 						height: 100vh
-						overflow: hidden
 						position: absolute
 						right: 100vw
 						width: 100vw
@@ -40,8 +40,10 @@ html
 
 					.right-menu-active
 						animation: right-menu-slide-in 0.1s ease-out
+						display: block
 						right: 0
 
 					.right-menu-inactive
 						animation: right-menu-slide-out 0.2s ease-out
+						display: none
 						right: -100vw
