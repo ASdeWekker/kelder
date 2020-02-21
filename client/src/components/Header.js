@@ -7,8 +7,7 @@ class Header extends Component {
 
 		// Set the state for the date.
 		this.state = {
-			date: new Date(),
-			// rightMenuRef: null
+			date: new Date()
 		}
 		// Set the date options.
 		this.dateStringOptions = { month: "long", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" }
