@@ -8,7 +8,7 @@ class Menu extends Component {
 		// Add this to the handleAnotherClick function.
 		this.handleAnotherClick = this.handleAnotherClick.bind(this)
 		// Just a random version version number I'll sometimes update.
-		this.versionNumber = "1.0.22"
+		this.versionNumber = "1.0.27"
 	}
 
 	// Untoggle the right menu.
@@ -20,10 +20,10 @@ class Menu extends Component {
 	render() {
 		return (
 			<div className="right-menu--menu">
+				<Penp />
 				<h1 className="right-menu--menu--h1">Practice &amp; Projects
 					<span onClick={this.handleAnotherClick}><i className="fas fa-times"></i></span>
 				</h1>
-				<Penp />
 				<h6 className="right-menu--menu--version-number">Version:&nbsp;
 					<em>{this.versionNumber}</em>
 				</h6>
