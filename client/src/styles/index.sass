@@ -1,0 +1,65 @@
+
+// Main styles file.
+
+
+// Import the partial files.
+@import "partials/vars"
+@import "partials/keyframes"
+@import "partials/header"
+@import "partials/menu"
+@import "partials/penp"
+@import "partials/most-used"
+@import "partials/home-control"
+
+
+// Standard styles for the main containers.
+*, *:before, *:after
+	box-sizing: inherit
+
+html, body, #root, .App
+	background: $bg
+	height: 100vh
+	margin: 0
+	overflow: hidden
+	padding: 0
+	width: 100vw
+
+button
+	background: none
+	border: none
+	color: $text
+	cursor: pointer
+	font-family: Arial, sans-serif
+	padding: 0
+
+a
+	color: $text
+	text-decoration: none
+
+
+// Starting the normal styling.
+html
+	box-sizing: border-box
+	color: $text
+	font-family: Arial, sans-serif
+	font-size: 14px
+
+	body
+		#root
+			.App
+				.bottom
+					bottom: 0
+					height: 206px
+					left: 0
+					position: fixed
+					width: 100%
+
+
+// Status specific stylings.
+
+// This is for when a button menu is open and active.
+#root .App .bottom .home-control .container .menu-active
+	background: $text
+
+	button
+		color: $bg

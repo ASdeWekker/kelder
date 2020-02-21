@@ -1,0 +1,41 @@
+// Style for the most used places.
+
+html
+	body
+		#root
+			.App
+				.bottom
+					.most-used-places
+						background: $bg
+						height: 96px
+						width: 100%
+
+						.container
+							display: flex
+							flex-flow: row nowrap
+							height: 96px
+							justify-content: space-evenly
+							width: 100%
+
+							&--button
+								height: 80px
+								margin-top: 8px
+								width: 62px
+
+								&--circle
+									align-items: center
+									background: lighten($bg, 8%)
+									border-radius: 50%
+									color: $text
+									display: flex
+									font-size: 40.6px //2.9em
+									height: 62px
+									justify-content: center
+									width: 62px
+
+								&--text
+									color: $text-alt
+									font-size: 1.13em //Gives a computed size of 14px
+									margin: 0
+									text-align: center
+									width: 62px

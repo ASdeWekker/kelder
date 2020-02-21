@@ -1,0 +1,34 @@
+// Styles for the Home Control section.
+
+html
+	body
+		#root
+			.App
+				.bottom
+					.home-control
+						height: 110px
+						width: 100%
+
+						.container
+							align-items: center
+							display: flex
+							flex-flow: row nowrap
+							height: 110px
+							justify-content: space-evenly
+							width: 100%
+
+							&--button
+								align-items: center
+								background: $bg
+								border: 2px solid $text
+								border-radius: 30px
+								display: flex
+								height: 50px
+								padding: 0 0.6em
+
+								&--icon
+									font-size: 2em
+									margin-right: 6px
+
+								&--text
+									font-size: 1.4em

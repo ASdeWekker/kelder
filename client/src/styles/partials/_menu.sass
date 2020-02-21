@@ -1,0 +1,47 @@
+// The styles for the menu.
+
+html
+	body
+		#root
+			.App
+				.header
+					.right-menu
+						background: $bg-alt
+						height: 100vh
+						overflow: hidden
+						position: absolute
+						right: 100vw
+						width: 100vw
+						z-index: 9999
+
+						&--menu
+							height: 100vh
+							position: absolute
+							right: 0
+							width: 100vw
+
+							&--h1
+								margin: 16px
+								width: 90vw
+
+								span
+									cursor: pointer
+									float: right
+
+							&--version-number
+								bottom: 10px
+								color: $text-alt
+								margin: 0
+								position: absolute
+								right: 10px
+
+								em
+									color: $text
+
+					.right-menu-active
+						animation: right-menu-slide-in 0.1s ease-out
+						right: 0
+
+					.right-menu-inactive
+						animation: right-menu-slide-out 0.2s ease-out
+						right: -100vw
