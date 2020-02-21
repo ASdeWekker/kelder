@@ -42,7 +42,9 @@ class Header extends Component {
 					</div>
 					<div className="header--container--right">
 						<p className="header--container--right--placeholder">
-							Plek om te tonen welke dingen er wel of niet aan staan?
+							O-Lamp: ON<br />
+							S-Lamp: OFF<br />
+							Amp: ON<br />
 						</p>
 						<button className="header--container--right--right-menu-button" onClick={this.handleClick}>M E N U</button>
 					</div>
