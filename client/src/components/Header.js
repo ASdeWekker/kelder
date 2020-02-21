@@ -31,9 +31,6 @@ class Header extends Component {
 	render() {
 		return (
 			<header className="header">
-				<div ref={this.rightMenu} className="right-menu">
-					<Menu rightMenuRef={this.rightMenu} />
-				</div>
 				<div className="header--container">
 					<div className="header--container--left">
 						<div className="header--container--left--wrapper">
@@ -49,6 +46,9 @@ class Header extends Component {
 						</p>
 						<button className="header--container--right--right-menu-button" onClick={this.handleClick}>M E N U</button>
 					</div>
+				</div>
+				<div className="right-menu" ref={this.rightMenu}>
+					<Menu rightMenuRef={this.rightMenu} />
 				</div>
 			</header>
 		)
