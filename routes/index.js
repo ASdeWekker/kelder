@@ -1,39 +1,39 @@
-// Deps.
+// Dependencies.
 const express = require("express")
 const { exec } = require("child_process")
-const log4js = require("log4js")
+// const log4js = require("log4js")
 
 // Declare the router and log4js.
 const router = express.Router()
-const logger = log4js.getLogger("things")
+// const logger = log4js.getLogger("things")
 
 // Log4js configuration.
-log4js.configure({
-	appenders: {
-		file: {
-			type: "file",
-			filename: "important-things.log",
-			maxLogSize: 10 * 1024 * 1024, // = 10 Mb
-			backups: 5, // Keep 5 backups
-			compress: true,
-			encoding: "utf-8",
-			mode: 0o0640,
-			flags: "w+"
-		},
-		dateFile: {
-			type: "dateFile",
-			filename: "more-important-things.log",
-			pattern: "yyyy-MM-dd-hh",
-			compress: true
-		},
-		out: {
-			type: "stdout"
-		}
-	},
-	categories: {
-		default: { appenders: ["file", "dateFile", "out"], level: "trace" }
-	}
-})
+// log4js.configure({
+// 	appenders: {
+// 		file: {
+// 			type: "file",
+// 			filename: "important-things.log",
+// 			maxLogSize: 10 * 1024 * 1024, // = 10 Mb
+// 			backups: 5, // Keep 5 backups
+// 			compress: true,
+// 			encoding: "utf-8",
+// 			mode: 0o0640,
+// 			flags: "w+"
+// 		},
+// 		dateFile: {
+// 			type: "dateFile",
+// 			filename: "more-important-things.log",
+// 			pattern: "yyyy-MM-dd-hh",
+// 			compress: true
+// 		},
+// 		out: {
+// 			type: "stdout"
+// 		}
+// 	},
+// 	categories: {
+// 		default: { appenders: ["file", "dateFile", "out"], level: "trace" }
+// 	}
+// })
 
 // A function to quickly issue a command-line command and a console.log message.
 function execFunc(command,message) {
@@ -41,10 +41,11 @@ function execFunc(command,message) {
 		if (err || stderr) {
 			console.error("There was an error:")
 			console.log(err || stderr)
+			// logger.debug(err || stderr)
 			return
 		} else {
 			console.log(message)
-			logger.debug(message)
+			// logger.debug(message)
 		}
 	})
 }
