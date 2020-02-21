@@ -1,49 +1,48 @@
 // The styles for the menu.
 
-html
-	body
-		#root
-			.App
-				.header
-					.right-menu
-						background: $bg-alt
-						display: none
-						height: 100vh
-						position: absolute
-						right: 100vw
-						width: 100vw
-						z-index: 9999
+.right-menu
+	background: $bg-alt
+	height: 100vh
+	position: relative
+	right: 100vw
+	top: -100px
+	width: 100vw
+	z-index: 9999
 
-						&--menu
-							height: 100vh
-							position: absolute
-							right: 0
-							width: 100vw
+	&--menu
+		height: 100vh
+		width: 100vw
 
-							&--h1
-								margin: 16px
-								width: 90vw
+		&--h1
+			bottom: -65vh
+			height: 64px
+			left: 0
+			line-height: 64px
+			margin: 0 5vw
+			position: relative
+			width: 90vw
 
-								span
-									cursor: pointer
-									float: right
+			span
+				cursor: pointer
+				float: right
 
-							&--version-number
-								bottom: 10px
-								color: $text-alt
-								margin: 0
-								position: absolute
-								right: 10px
+		&--version-number
+			color: $text-alt
+			margin: 0 4vw
+			position: relative
+			text-align: right
+			top: -32.7vh
+			width: 92vw
 
-								em
-									color: $text
+			em
+				color: $text
 
-					.right-menu-active
-						animation: right-menu-slide-in 0.1s ease-out
-						display: block
-						right: 0
+.right-menu-active
+	animation: right-menu-slide-in 0.1s ease-out
+	// display: block
+	right: 0
 
-					.right-menu-inactive
-						animation: right-menu-slide-out 0.2s ease-out
-						display: none
-						right: -100vw
+.right-menu-inactive
+	animation: right-menu-slide-out 0.2s ease-out
+	// display: none
+	right: -100vw

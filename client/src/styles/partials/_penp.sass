@@ -1,56 +1,54 @@
 // Styles for the PenP section.
 
-html
-	body
-		#root
-			.App
-				.header
-					.right-menu
-						&--menu
-							.body
-								height: auto
-								width: 100vw
+.body
+	height: auto
+	width: 100vw
 
-								.container
-									height: 80px
-									width: 100vw
+	.container
+		height: 80px
+		width: 100vw
 
-									&--header
-										color: $text-alt
-										font-size: 1.3em
-										font-weight: 400
-										height: 22px
-										line-height: 22px
-										margin: 0 0 8px $marginLeft
-										text-decoration: underline
+		&--header
+			color: $text-alt
+			font-size: 1.3em
+			font-weight: 400
+			height: 22px
+			line-height: 22px
+			margin: 0 0 8px $marginLeft
+			text-decoration: underline
 
-									&--wrapper
-										height: 50px
-										overflow-x: scroll
-										overflow-y: hidden
-										scrollbar-width: none
-										white-space: nowrap
-										width: 100vw
-										-webkit-overflow-scrolling: touch
+		&--wrapper
+			height: 50px
+			overflow-x: scroll
+			overflow-y: hidden
+			scrollbar-width: none
+			white-space: nowrap
+			width: 100vw
+			-webkit-overflow-scrolling: touch
 
-										&--button
-											background: $bg-alt
-											border: 2px solid $text
-											border-radius: 20px
-											display: inline-block
-											margin-right: 10px
-											padding: 0.7em 0.8em
+			&--button
+				background: $bg-alt
+				border: 2px solid $text
+				border-radius: 20px
+				display: inline-block
+				margin-right: 10px
+				padding: 0.7em 0.8em
 
-											&:first-child
-												margin-left: 20px
+				&:first-child
+					margin-left: 20px
 
-											&--link
-												font-size: 1.2em
-												margin: 0
+				&--link
+					font-size: 1.2em
+					margin: 0
 
-											&--toggle
-												font-size: 1.2em
-												margin-left: 0.3em
+				&--toggle
+					font-size: 1.2em
+					margin-left: 0.3em
 
-								.container.projects
-									margin-top: 10px
+	.container.practice .container--header
+		height: 50px
+		line-height: 50px
+		margin-bottom: -6px
+
+	.container.projects
+		margin-top: 16px
