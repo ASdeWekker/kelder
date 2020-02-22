@@ -7,7 +7,10 @@ class Header extends Component {
 
 		// Set the state for the date.
 		this.state = {
-			date: new Date()
+			date: new Date(),
+			// amp: null,
+			// standing: null,
+			// overhead: null
 		}
 		// Set the date options.
 		this.dateStringOptions = { month: "long", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" }
@@ -21,6 +24,20 @@ class Header extends Component {
 	componentDidMount() { this.timerID = setInterval(() => this.tick(), 1000) }
 	componentWillUnmount() { clearInterval(this.timerID) }
 	tick() { this.setState({ date: new Date() }) }
+
+	// Check the status of the switches.
+	// componentDidMount() {
+	// 	this.timerID = setInterval(() => this.checkStatus("s"), 1000)
+	// }
+	// componentWillUnmount() {
+	// 	clearInterval(this.timerID)
+	// }
+	// ccheckStatus(dev) {
+	// 	fetch(`/api/wifi/${dev}/status`).then(res => return res.json())
+	// }
+	// checkStatus = (dev) => {
+	// 	fetch("http://192.168.1.222/status").then(console.log("lol"))
+	// }
 
 	// Toggle the right menu.
 	handleClick() {
@@ -46,7 +63,7 @@ class Header extends Component {
 							S-Lamp: OFF<br />
 							Amp: ON<br />
 						</p>
-						<button className="header--container--right--right-menu-button" onClick={this.handleClick}>M E N U</button>
+						<button className="header--container--right--right-menu-button" onClick={this.handleClick}>Menu</button>
 					</div>
 				</div>
 				<div className="right-menu" ref={this.rightMenu}>
