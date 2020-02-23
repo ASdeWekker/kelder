@@ -7,6 +7,15 @@ const log4js = require("log4js")
 const router = express.Router()
 const logger = log4js.getLogger("things")
 
+// An object to use with the wifi plugs.
+const plugsAndModes = {
+	A: "",
+	o: "overhead",
+	s: "standing",
+	a: "amplifier",
+	l: ""
+}
+
 // Log4js configuration.
 log4js.configure({
 	appenders: {
@@ -35,42 +44,67 @@ log4js.configure({
 	}
 })
 
+
 // A function to quickly issue a command-line command and a console.log message.
+// let execFunc = (command,message) => {
+// 	exec(command, (err, stdout, stderr) => {
+// 		if (err || stderr) {
+// 			console.error("There was an error:")
+// 			console.log(err || stderr)
+// 			logger.debug(err || stderr)
+// 			return err ? err : stderr
+// 		} else {
+// 			logger.debug(message)
+// 			return stdout
+// 		}
+// 	})
+// }
 function execFunc(command,message) {
 	exec(command, (err, stdout, stderr) => {
 		if (err || stderr) {
 			console.error("There was an error:")
 			console.log(err || stderr)
 			logger.debug(err || stderr)
-			return
+			return err ? err : stderr
 		} else {
-			console.log(message)
 			logger.debug(message)
+			return stdout
 		}
 	})
 }
 
 
-// Routes for turning my pc on or off.
-router.get("/pc/on", (req, res) => {
-	execFunc("wol 30:9c:23:04:60:2f", "PC has been switched on.")
-	res.send("PC has been switched on")
-})
-router.get("/pc/off", (req, res) => {
-	res.send("The pc hasn't really been switched off.")
+// Add a warning for someone trying to access the /api endpoint.
+router.get("/", (req, res) => {
+	res.json({"message": "This part shoud not be accessed"})
 })
 
-// Routes for using the ledstrip.
-router.get("/led/toggle", (req, res) => {
-	execFunc("/usr/bin/python3 /home/alex/dotfiles/scripts/python/ledstrip.py -p toggle", "The ledstrip has been toggled.")
-	res.send("The ledstrip has been toggled")
+// Route for turning my pc on or off.
+router.get("/pc/:power", (req, res) => {
+	let { power } = req.params
+	if (power === "on") {
+		execFunc("wol 30:9c:23:04:60:2f", "PC has been switched on.")
+		res.json({"pc": "on"})
+	} else {
+		console.log("Wrong command on the pc endpoint")
+		res.json({"pc": "wrong command"})
+	}
 })
 
-// Routes for using the wifiplus.
-router.get("/wifi/:plug/:mode", (req, res) => {
-	let plug = req.params.plug
-	let mode = req.params.mode
-	execFunc(`/usr/bin/python3 /home/alex/dotfiles/scripts/python/switch.py -${plug} ${mode}`, "Switch has been toggled.")
+// Route for using the ledstrip.
+router.get("/led/:mode/:arg", (req, res) => {
+	let { mode, arg } = req.params
+	let execMessage = execFunc(`/usr/bin/python3 /home/alex/dotfiles/scripts/python/ledstrip.py -${mode} ${arg}`, "The ledstrip has been toggled.")
+	res.json({execMessage})
+})
+
+// Route for using the wifi plugs.
+router.get("/wifi/:plug/:arg", (req, res) => {
+	let { plug, arg } = req.params
+	let isAllOrLights = plug === "A" ? "switches have" : plug === "l" ? "lights have" : " switch has"
+	let message = (`The ${plugsAndModes[plug]}${isAllOrLights} been ${arg === "status" ? "checked" : "toggled"}`)
+	execFunc(`/usr/bin/python3 /home/alex/dotfiles/scripts/python/switch.py -${plug} ${arg}`, message)
+	res.json({"message": message})
 })
 
 
