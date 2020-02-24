@@ -7,10 +7,9 @@ class Header extends Component {
 
 		// Set the state for the date.
 		this.state = {
-			// date: new Date(),
-			amp: null,
-			// standing: null,
-			// overhead: null
+			overhead: "OFF",
+			standing: "OFF",
+			amp: "OFF"
 		}
 		// Set the date options.
 		this.dateStringOptions = { month: "long", day: "numeric"} //, hour: "numeric", minute: "numeric", second: "numeric" }
@@ -32,12 +31,19 @@ class Header extends Component {
 	// componentWillUnmount() {
 	// 	clearInterval(this.timerID)
 	// }
-	// ccheckStatus(dev) {
-	// 	fetch(`/api/wifi/${dev}/status`).then(res => return res.json())
-	// }
-	// checkStatus = (dev) => {
-	// 	fetch("http://192.168.1.222/status").then(console.log("lol"))
-	// }
+	checkStatus = (dev) => {
+		let plugsAndShortcodes = {
+			overhead: "o",
+			standing: "s",
+			amp: "a"
+		}
+		fetch(`/api/wifi/${dev}/status`)
+			.then(res => { return res.json() })
+			.then(data => {
+				let status = JSON.parse(data)
+				console.log(typeof status)
+			})
+	}
 
 	// Toggle the right menu.
 	handleClick() {
@@ -52,9 +58,12 @@ class Header extends Component {
 				<div className="header--container">
 					<div className="header--container--left">
 						<p className="header--container--left--status">
-							O-Lamp: ON<br />
-							S-Lamp: OFF<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amp: ON<br />
+							<span className="left-status" onClick={() => this.checkStatus("s")}>Overhead:</span>
+							<span className="right-status">{this.state.overhead}<br /></span>
+							<span className="left-status">Standing:</span>
+							<span className="right-status">{this.state.standing}<br /></span>
+							<span className="left-status">Amp:</span>
+							<span className="right-status">{this.state.amp}<br /></span>
 						</p>
 					</div>
 					<div className="header--container--right">
