@@ -93,9 +93,8 @@ router.get("/wifi/:plug/:arg", (req, res) => {
 	let command = `/usr/bin/python3 /home/alex/dotfiles/scripts/python/switch.py -${plug} ${arg}`
 	exec(command, (err, stdout, stderr) => {
 		if (err || stderr) logger.debug(err || stderr)
-		logger.debug(stdout)
-		let output = stdout
-		res.json(output)
+		if (arg !== "status") logger.debug(stdout)
+		res.json(stdout)
 	})
 })
 // router.get("/wifi/:plug/:arg", (req, res) => {
