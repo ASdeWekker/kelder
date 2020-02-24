@@ -32,16 +32,23 @@ class Header extends Component {
 	// 	clearInterval(this.timerID)
 	// }
 	checkStatus = (dev) => {
-		let plugsAndShortcodes = {
-			overhead: "o",
-			standing: "s",
-			amp: "a"
-		}
-		fetch(`/api/wifi/${dev}/status`)
-			.then(res => { return res.json() })
-			.then(data => {
-				let status = JSON.parse(data)
-				console.log(typeof status)
+		// let plugsAndShortcodes = {
+		// 	overhead: "o",
+		// 	standing: "s",
+		// 	amp: "a"
+		// }
+		fetch(`/api/wifi/${dev}/status`, {
+			method:"get",
+			dataType:"json",
+			headers: {
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			}})
+			.then(res => res.json())
+			.then(res => {
+				// let status = JSON.parse(res, (key,value))
+				// console.log(res.split(" ")[1].split("}")[0])
+				console.log(JSON.parse('{"status": on}'))
 			})
 	}
 
