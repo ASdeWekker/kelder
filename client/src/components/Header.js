@@ -7,13 +7,13 @@ class Header extends Component {
 
 		// Set the state for the date.
 		this.state = {
-			date: new Date(),
-			// amp: null,
+			// date: new Date(),
+			amp: null,
 			// standing: null,
 			// overhead: null
 		}
 		// Set the date options.
-		this.dateStringOptions = { month: "long", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" }
+		this.dateStringOptions = { month: "long", day: "numeric"} //, hour: "numeric", minute: "numeric", second: "numeric" }
 		// Bind this to the click functions.
 		this.handleClick = this.handleClick.bind(this)
 		// Get the right-menu and right-menu--container.
@@ -21,9 +21,9 @@ class Header extends Component {
 	}
 
 	// Lifecycle things for the clock example.
-	componentDidMount() { this.timerID = setInterval(() => this.tick(), 1000) }
-	componentWillUnmount() { clearInterval(this.timerID) }
-	tick() { this.setState({ date: new Date() }) }
+	// componentDidMount() { this.timerID = setInterval(() => this.tick(), 1000) }
+	// componentWillUnmount() { clearInterval(this.timerID) }
+	// tick() { this.setState({ date: new Date() }) }
 
 	// Check the status of the switches.
 	// componentDidMount() {
@@ -48,22 +48,26 @@ class Header extends Component {
 	render() {
 		return (
 			<header className="header">
+				{ /* This is where the header resides. Info about which devices are on is shown here. */ }
 				<div className="header--container">
 					<div className="header--container--left">
-						<div className="header--container--left--wrapper">
-							<h1 className="header--container--left--wrapper--text">Kelder</h1>
-							<h2 className="header--container--left--wrapper--date">
-								{this.state.date.toLocaleDateString("nl-NL", this.dateStringOptions)}
-							</h2>
-						</div>
-					</div>
-					<div className="header--container--right">
-						<p className="header--container--right--placeholder">
+						<p className="header--container--left--status">
 							O-Lamp: ON<br />
 							S-Lamp: OFF<br />
-							Amp: ON<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amp: ON<br />
 						</p>
-						<button className="header--container--right--right-menu-button" onClick={this.handleClick}>Menu</button>
+					</div>
+					<div className="header--container--right">
+						<div className="header--container--right--wrapper">
+							<h1 className="header--container--right--wrapper--text">Kelder<br />
+								<span className="header--container--right--wrapper--text--date">
+									{new Date().toLocaleDateString("nl-NL", this.dateStringOptions)}
+								</span>
+							</h1>
+						</div>
+						<div className="header--container--right--button-wrapper">
+							<button className="header--container--right--button-wrapper--right-menu-button" onClick={this.handleClick}>Menu</button>
+						</div>
 					</div>
 				</div>
 				<div className="right-menu" ref={this.rightMenu}>

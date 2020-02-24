@@ -8,52 +8,53 @@
 	&--container
 		clear: both
 		color: $text-alt
+		display: flex
 		height: 100px
+		justify-content: flex-start
 		min-height: $headerHeight
 		width: 100vw
 
 		&--left, &--right
-			float: left
 			height: 100px
 			min-height: $headerHeight
 			width: 50vw
 
 		&--left
-			align-items: center
-			display: flex
-
-			&--wrapper
-				margin-top: -20px
-
-				h1, h2
-					font-size: 1.5em
-					margin-left: $marginLeft
-
-				&--text
-					font-weight: 400
-					letter-spacing: -2px
-					margin: 26px 0 -5px
-
-				&--date
-					font-weight: 100
-					letter-spacing: -1px
-					margin-top: 0
+			&--status
+				margin-left: 16px
+				width: 100%
 
 		&--right
 			align-items: center
 			display: flex
-			justify-content: center
 
-			&--placeholder
-				height: auto
-				margin-right: 10px
-				width: 70%
+			&--wrapper
+				height: 100px
+				width: calc(100% - 1px)
 
-			&--right-menu-button
-				border: 2px solid $text
-				border-radius: 24px
-				font-size: 1.6em
-				margin-right: -20px
-				padding: 0.4em 1.1em 0.4em 0.6em
-				position: relative
-				top: 58vh
+				h1, h2
+					font-size: 1.5em
+					margin-right: 15px
+					text-align: right
+
+				&--text
+					font-weight: 400
+					letter-spacing: -2px
+
+					&--date
+						font-weight: 100
+						letter-spacing: -1px
+			
+			&--button-wrapper
+				height: 100px
+				overflow: visible
+				width: 1px
+
+				&--right-menu-button
+					border: 2px solid $text
+					border-radius: 24px
+					font-size: 1.6em
+					padding: 0.4em 1.1em 0.4em 0.6em
+					position: relative
+					right: 77px
+					top: 61vh
