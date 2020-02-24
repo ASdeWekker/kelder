@@ -46,19 +46,6 @@ log4js.configure({
 
 
 // A function to quickly issue a command-line command and a console.log message.
-// let execFunc = (command,message) => {
-// 	exec(command, (err, stdout, stderr) => {
-// 		if (err || stderr) {
-// 			console.error("There was an error:")
-// 			console.log(err || stderr)
-// 			logger.debug(err || stderr)
-// 			return err ? err : stderr
-// 		} else {
-// 			logger.debug(message)
-// 			return stdout
-// 		}
-// 	})
-// }
 function execFunc(command,message) {
 	exec(command, (err, stdout, stderr) => {
 		if (err || stderr) {
@@ -94,18 +81,30 @@ router.get("/pc/:power", (req, res) => {
 // Route for using the ledstrip.
 router.get("/led/:mode/:arg", (req, res) => {
 	let { mode, arg } = req.params
-	let execMessage = execFunc(`/usr/bin/python3 /home/alex/dotfiles/scripts/python/ledstrip.py -${mode} ${arg}`, "The ledstrip has been toggled.")
-	res.json({execMessage})
+	let message = "The ledstrip has been toggled."
+	execFunc(`/usr/bin/python3 /home/alex/dotfiles/scripts/python/ledstrip.py -${mode} ${arg}`, message)
+	res.json({"message": message})
 })
 
 // Route for using the wifi plugs.
 router.get("/wifi/:plug/:arg", (req, res) => {
 	let { plug, arg } = req.params
-	let isAllOrLights = plug === "A" ? "switches have" : plug === "l" ? "lights have" : " switch has"
-	let message = (`The ${plugsAndModes[plug]}${isAllOrLights} been ${arg === "status" ? "checked" : "toggled"}`)
-	execFunc(`/usr/bin/python3 /home/alex/dotfiles/scripts/python/switch.py -${plug} ${arg}`, message)
-	res.json({"message": message})
+	let message = "A wifi plug has been toggled."
+	let command = `/usr/bin/python3 /home/alex/dotfiles/scripts/python/switch.py -${plug} ${arg}`
+	exec(command, (err, stdout, stderr) => {
+		if (err || stderr) logger.debug(err || stderr)
+		logger.debug(stdout)
+		let output = stdout
+		res.json(output)
+	})
 })
+// router.get("/wifi/:plug/:arg", (req, res) => {
+// 	let { plug, arg } = req.params
+// 	let isAllOrLights = plug === "A" ? "switches have" : plug === "l" ? "lights have" : " switch has"
+// 	let message = (`The ${plugsAndModes[plug]}${isAllOrLights} been ${arg === "status" ? "checked" : "toggled"}`)
+// 	execFunc(`/usr/bin/python3 /home/alex/dotfiles/scripts/python/switch.py -${plug} ${arg}`, message)
+// 	res.json({"message": message})
+// })
 
 
 module.exports = router
