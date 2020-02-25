@@ -94,8 +94,7 @@ router.get("/wifi/:plug/:arg", (req, res) => {
 	exec(command, (err, stdout, stderr) => {
 		if (err || stderr) logger.debug(err || stderr)
 		if (arg !== "status") logger.debug(stdout)
-		console.log(stdout)
-		res.json(stdout)
+		res.json(JSON.parse(stdout))
 	})
 })
 // router.get("/wifi/:plug/:arg", (req, res) => {

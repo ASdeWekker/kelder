@@ -25,12 +25,6 @@ class Header extends Component {
 	// tick() { this.setState({ date: new Date() }) }
 
 	// Check the status of the switches.
-	// componentDidMount() {
-	// 	this.timerID = setInterval(() => this.checkStatus("s"), 1000)
-	// }
-	// componentWillUnmount() {
-	// 	clearInterval(this.timerID)
-	// }
 	checkStatus = (dev) => {
 		// let plugsAndShortcodes = {
 		// 	overhead: "o",
@@ -46,9 +40,7 @@ class Header extends Component {
 			}})
 			.then(res => res.json())
 			.then(res => {
-				// let status = JSON.parse(res, (key,value))
-				// console.log(res.split(" ")[1].split("}")[0])
-				console.log(JSON.parse('{"status": on}'))
+				console.log(res.status)
 			})
 	}
 
