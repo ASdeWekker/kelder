@@ -22,9 +22,15 @@ class Header extends Component {
 		this.rightMenu = React.createRef()
 	}
 
-	// Lifecycle things for the clock example.
-	// componentDidMount() { this.timerID = setInterval(() => this.tick(), 1000) }
-	// componentWillUnmount() { clearInterval(this.timerID) }
+	// Lifecycle things for the switch checks.
+	// componentDidMount() {
+	// 	this.timerOne = setInterval(() => this.checkStatus("o"), 2000)
+	// 	this.timerTwo = setInterval(() => this.checkStatus("s"), 2000)
+	// 	this.timerThree = setInterval(() => this.checkStatus("a"), 2000)
+	// }
+	// componentWillUnmount() {
+	// 	clearInterval(this.timerOne); clearInterval(this.timerTwo); clearInterval(this.timerThree)
+	// }
 
 	// Check the status of the switches and set the new state.
 	checkStatus = (dev) => {
