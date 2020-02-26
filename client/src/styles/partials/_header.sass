@@ -1,41 +1,49 @@
 // Styles for the header.
 
 .header
-	height: 100px
-	min-height: $headerHeight
+	height: $headerHeight
 	width: 100vw
 
 	&--container
 		clear: both
 		color: $text-alt
 		display: flex
-		height: 100px
+		height: $headerHeight
 		justify-content: flex-start
-		min-height: $headerHeight
 		width: 100vw
 
 		&--left, &--right
-			height: 100px
-			min-height: $headerHeight
+			height: $headerHeight
 			width: 50vw
 
 		&--left
+			align-items: center
+			display: flex
+			justify-content: space-evenly
+
 			&--status
 				margin-left: 16px
-				width: 100%
+				width: 27vw
 
 				.left-status
 					display: inline-block
 					margin-right: 6px
 					text-align: right
 					width: 68px
+			
+			&--check-button
+				border: 2px solid $text
+				border-radius: 22px
+				font-size: 1.1em
+				padding: 0.3em 0
+				width: 70px
 
 		&--right
 			align-items: center
 			display: flex
 
 			&--wrapper
-				height: 100px
+				height: $headerHeight
 				width: calc(100% - 1px)
 
 				h1, h2
@@ -52,7 +60,7 @@
 						letter-spacing: -1px
 			
 			&--button-wrapper
-				height: 100px
+				height: $headerHeight
 				overflow: visible
 				width: 1px
 

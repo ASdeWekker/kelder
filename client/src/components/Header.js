@@ -19,6 +19,7 @@ class Header extends Component {
 		this.dateStringOptions = { month: "long", day: "numeric"}
 		// Bind this to the click functions.
 		this.handleClick = this.handleClick.bind(this)
+		this.checkButton = this.checkButton.bind(this)
 		// Get the right-menu.
 		this.rightMenu = React.createRef()
 	}
@@ -47,6 +48,12 @@ class Header extends Component {
 				this.setState({ switchStatus: changedObj })
 			})
 	}
+	checkButton() {
+		// eslint-disable-next-line
+		this.state.switchStatus.map(el => {
+			this.checkStatus(el.shortName)
+		})
+	}
 
 	// Toggle the right menu.
 	handleClick() {
@@ -68,6 +75,7 @@ class Header extends Component {
 							<span className="left-status">{this.state.switchStatus[2].longName}:</span>
 							<span className="right-status">{this.state.switchStatus[2].status}<br /></span>
 						</p>
+						<button className="header--container--left--check-button" onClick={this.checkButton}>Check status</button>
 					</div>
 					<div className="header--container--right">
 						<div className="header--container--right--wrapper">
