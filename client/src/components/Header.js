@@ -5,32 +5,28 @@ class Header extends Component {
 	constructor(props) {
 		super()
 
-		// Set the state for the date.
 		this.state = {
+			// Set the state for the date.
+			date: new Date(),
+			// Set the state switch statuses.
 			switchStatus: [
 				{ shortName: "o", longName: "Overhead", status: "OFF" },
 				{ shortName: "s", longName: "Standing", status: "OFF" },
 				{ shortName: "a", longName: "Amp", status: "OFF" },
 			],
-			thing: "lol"
 		}
 		// Set the date options.
-		this.dateStringOptions = { month: "long", day: "numeric"} //, hour: "numeric", minute: "numeric", second: "numeric" }
+		this.dateStringOptions = { month: "long", day: "numeric"}
 		// Bind this to the click functions.
 		this.handleClick = this.handleClick.bind(this)
 		// Get the right-menu.
 		this.rightMenu = React.createRef()
 	}
 
-	// Lifecycle things for the switch checks.
-	// componentDidMount() {
-	// 	this.timerOne = setInterval(() => this.checkStatus("o"), 2000)
-	// 	this.timerTwo = setInterval(() => this.checkStatus("s"), 2000)
-	// 	this.timerThree = setInterval(() => this.checkStatus("a"), 2000)
-	// }
-	// componentWillUnmount() {
-	// 	clearInterval(this.timerOne); clearInterval(this.timerTwo); clearInterval(this.timerThree)
-	// }
+	// Check if a new day is available.
+	componentDidMount() { this.timerID = setInterval(() => this.tick(), 5000) }
+	componentWillUnmount() { clearInterval(this.timerID) }
+	tick() { this.setState({ date: new Date() }) }
 
 	// Check the status of the switches and set the new state.
 	checkStatus = (dev) => {
@@ -75,9 +71,9 @@ class Header extends Component {
 					</div>
 					<div className="header--container--right">
 						<div className="header--container--right--wrapper">
-							<h1 className="header--container--right--wrapper--text" onClick={() => this.checkStatus("s")}>Kelder<br />
+							<h1 className="header--container--right--wrapper--text">Kelder<br />
 								<span className="header--container--right--wrapper--text--date">
-									{new Date().toLocaleDateString("nl-NL", this.dateStringOptions)}
+									{this.state.date.toLocaleDateString("nl-NL", this.dateStringOptions)}
 								</span>
 							</h1>
 						</div>
