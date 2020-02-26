@@ -2,26 +2,27 @@
 const express = require("express")
 const { exec } = require("child_process")
 const log4js = require("log4js")
+const Req = require("http").request
 
 // Declare the router and log4js.
 const router = express.Router()
-const logger = log4js.getLogger("things")
+const logger = log4js.getLogger("activity")
 
 // An object to use with the wifi plugs.
-const plugsAndModes = {
-	A: "",
-	o: "overhead",
-	s: "standing",
-	a: "amplifier",
-	l: ""
-}
+// const plugsAndModes = {
+// 	A: "",
+// 	o: "overhead",
+// 	s: "standing",             NOT NEEDED RIGHT NOW
+// 	a: "amplifier",
+// 	l: ""
+// }
 
 // Log4js configuration.
 log4js.configure({
 	appenders: {
 		file: {
 			type: "file",
-			filename: "important-things.log",
+			filename: "./logs/activity.log",
 			maxLogSize: 10 * 1024 * 1024, // = 10 Mb
 			backups: 5, // Keep 5 backups
 			compress: true,
@@ -31,7 +32,7 @@ log4js.configure({
 		},
 		dateFile: {
 			type: "dateFile",
-			filename: "more-important-things.log",
+			filename: "./logs/important-activity.log",
 			pattern: "yyyy-MM-dd-hh",
 			compress: true
 		},
@@ -45,65 +46,54 @@ log4js.configure({
 })
 
 
-// A function to quickly issue a command-line command and a console.log message.
-function execFunc(command,message) {
-	exec(command, (err, stdout, stderr) => {
-		if (err || stderr) {
-			console.error("There was an error:")
-			console.log(err || stderr)
-			logger.debug(err || stderr)
-			return err ? err : stderr
-		} else {
-			logger.debug(message)
-			return stdout
-		}
-	})
-}
-
-
 // Add a warning for someone trying to access the /api endpoint.
 router.get("/", (req, res) => {
-	res.json({"message": "This part shoud not be accessed"})
+	let ip = req.connection.remoteAddress.split(":")[3]
+	res.json({"message": `TThis part should not be accessed, your ip (${ip}) will be forwarded to the authorities.`})
 })
 
 // Route for turning my pc on or off.
 router.get("/pc/:power", (req, res) => {
 	let { power } = req.params
+	let message, status = ""
 	if (power === "on") {
-		execFunc("wol 30:9c:23:04:60:2f", "PC has been switched on.")
-		res.json({"pc": "on"})
-	} else {
-		console.log("Wrong command on the pc endpoint")
-		res.json({"pc": "wrong command"})
+		exec("wol 30:9c:23:04:60:2f", (err, stdout, stderr) => {
+			logger.debug(err ? err : stderr ? stderr : stdout)
+			message = err ? "" : stderr ? "" : "The pc has been woken up."
+			status = err ? "" : stderr ? "" : "on"
+		})
+	} else if (power === "sleep") {
+		message = "Wrong command."
+		status = "still on?"
 	}
+	res.json({"message": message, "status": status})
 })
 
 // Route for using the ledstrip.
 router.get("/led/:mode/:arg", (req, res) => {
 	let { mode, arg } = req.params
-	let message = "The ledstrip has been toggled."
-	execFunc(`/usr/bin/python3 /home/alex/dotfiles/scripts/python/ledstrip.py -${mode} ${arg}`, message)
-	res.json({"message": message})
+	let command = `/usr/bin/python3 /home/alex/dotfiles/scripts/python/ledstrip.py -${mode} ${arg}`
+	exec(command, (err, stdout, stderr) => {
+		logger.debug(err ? err : stderr ? stderr : stdout)
+		let message = err ? "" : stderr ? "" : "The command has been executed."
+		let parsedOut = JSON.parse(stdout)
+		parsedOut.message = message
+		res.json(parsedOut)
+	})
 })
 
 // Route for using the wifi plugs.
 router.get("/wifi/:plug/:arg", (req, res) => {
 	let { plug, arg } = req.params
-	let message = "A wifi plug has been toggled."
 	let command = `/usr/bin/python3 /home/alex/dotfiles/scripts/python/switch.py -${plug} ${arg}`
 	exec(command, (err, stdout, stderr) => {
-		if (err || stderr) logger.debug(err || stderr)
-		if (arg !== "status") logger.debug(stdout)
-		res.json(JSON.parse(stdout))
+		logger.debug(err ? err : stderr ? stderr : stdout)
+		let message = err ? "" : stderr ? "" : "A wifi plug has been toggled."
+		let parsedOut = JSON.parse(stdout)
+		parsedOut.message = message
+		res.json(parsedOut)
 	})
 })
-// router.get("/wifi/:plug/:arg", (req, res) => {
-// 	let { plug, arg } = req.params
-// 	let isAllOrLights = plug === "A" ? "switches have" : plug === "l" ? "lights have" : " switch has"
-// 	let message = (`The ${plugsAndModes[plug]}${isAllOrLights} been ${arg === "status" ? "checked" : "toggled"}`)
-// 	execFunc(`/usr/bin/python3 /home/alex/dotfiles/scripts/python/switch.py -${plug} ${arg}`, message)
-// 	res.json({"message": message})
-// })
 
 
 module.exports = router
