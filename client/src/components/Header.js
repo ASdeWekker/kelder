@@ -24,8 +24,12 @@ class Header extends Component {
 		this.rightMenu = React.createRef()
 	}
 
-	// Check if a new day is available.
-	componentDidMount() { this.timerID = setInterval(() => this.tick(), 5000) }
+	componentDidMount() {
+		// Check if a new day is available.
+		this.timerID = setInterval(() => this.tick(), 5000)
+		// Check the status after the page has been reloaded.
+		// this.checkButton() DISABLED DURING DEVELOPMENT.
+	}
 	componentWillUnmount() { clearInterval(this.timerID) }
 	tick() { this.setState({ date: new Date() }) }
 
