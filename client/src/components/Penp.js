@@ -9,7 +9,13 @@ class Penp extends Component {
 		return (
 			<section className="body">
 				<div className="container practice">
-					<h2 className="container--header">Practice</h2>
+					<h2 className="container--header">
+						Practice
+						<span className="container--header--version">
+							Version:&nbsp;
+							<em>{this.props.version}</em>
+						</span>
+					</h2>
 					<div className="container--wrapper">
 						<div className="container--wrapper--button item-1">
 							<button className="container--wrapper--button--link">PostgreSQL</button>
