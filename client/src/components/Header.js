@@ -28,7 +28,9 @@ class Header extends Component {
 		// Check if a new day is available.
 		this.timerID = setInterval(() => this.tick(), 5000)
 		// Check the status after the page has been reloaded.
-		// this.checkButton() DISABLED DURING DEVELOPMENT.
+		let dev = false
+		dev = true
+		if (dev) this.checkButton() //DISABLED DURING DEVELOPMENT.
 	}
 	componentWillUnmount() { clearInterval(this.timerID) }
 	tick() { this.setState({ date: new Date() }) }
