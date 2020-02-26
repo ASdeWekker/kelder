@@ -12,7 +12,7 @@ class HomeControl extends Component {
 
 	// Fetch for turning the ledstrip on or off.
 	ledToggle = () => {
-		fetch("/api/led/toggle").then(console.log("Ledstrip: TOGGLED")) // old url http://192.168.1.220/power?power=toggle
+		fetch("/api/led/p/toggle").then(console.log("Ledstrip: TOGGLED"))
 	}
 
 	// Fetch for turning the amp plug on or off.
