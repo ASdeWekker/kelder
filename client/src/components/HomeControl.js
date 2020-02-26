@@ -1,23 +1,17 @@
 import React, { Component } from "react"
 
 class HomeControl extends Component {
-	constructor(props) {
-		super()
-	}
-
-	// A fetch for turning on the pc, hasn't been tested yet.
-	pcOn = () => {
-		fetch("/api/pc/on").then(console.log("PC: ON"))
-	}
-
-	// Fetch for turning the ledstrip on or off.
-	ledToggle = () => {
-		fetch("/api/led/p/toggle").then(console.log("Ledstrip: TOGGLED"))
-	}
-
-	// Fetch for turning the amp plug on or off.
-	switchToggle = () => {
-		fetch("/api/wifi/A/toggle").then(console.log("All: TOGGLED"))
+	// A function to fetch the different API endpoints.
+	apiCall = (endpoint) => {
+		fetch(`/api/${endpoint}`, {
+			method:"get",
+			dataType:"json",
+			headers: {
+				"Accept": "application/json",
+				"Content-Type": "application/json",
+			}})
+			.then(res => res.json())
+			.then(res => console.log(res))
 	}
 
 	render() {
@@ -25,22 +19,22 @@ class HomeControl extends Component {
 			<div className="home-control">
 				<div className="container">
 					<div id="plugs" className="container--button">
-						<button className="container--button--icon" onClick={this.switchToggle}>
+						<button className="container--button--icon" onClick={() => this.apiCall("wifi/A/toggle")}>
 							<i className="fas fa-power-off"></i>
 						</button>
 						<button className="container--button--text">Plugs</button>
 					</div>
 					<div id="ledstrip" className="container--button">
-						<button className="container--button--icon" onClick={this.ledToggle}>
+						<button className="container--button--icon" onClick={() => this.apiCall("led/p/toggle")}>
 							<i className="fas fa-power-off"></i>
 						</button>
 						<button className="container--button--text">Ledstrip</button>
 					</div>
 					<div id="pc" className="container--button">
-						<button className="container--button--icon" onClick={this.pcOn}>
+						<button className="container--button--icon" onClick={() => this.apiCall("pc/on")}>
 							<i className="fas fa-power-off"></i>
 						</button>
-						<button className="container--button--text" onClick={this.pcOn}>PC</button>
+						<button className="container--button--text" onClick={() => this.apiCall("pc/on")}>PC</button>
 					</div>
 				</div>
 			</div>
