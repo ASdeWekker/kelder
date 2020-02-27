@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import HcMenu from "./HcMenu"
 
 class HomeControl extends Component {
 	// A function to fetch the different API endpoints.
