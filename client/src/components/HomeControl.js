@@ -9,12 +9,12 @@ class HomeControl extends Component {
 			// State to show if the menu is active.
 			isActive: false,
 			// State for the menu header name.
-			menuName: "Wifi plugs",
+			menuName: "",
 		}
 	}
 
 	// A function to fetch the different API endpoints.
-	apiCall = endpoint => {
+	apiCall = (endpoint) => {
 		fetch(`/api/${endpoint}`, {
 			method:"get",
 			dataType:"json",
@@ -29,16 +29,17 @@ class HomeControl extends Component {
 	// A function to render the menu.
 	menu = () => {
 		if (this.state.isActive) {
-			return <HcMenu options={this.props} />
+			return <HcMenu options={this.state} apiCall={this.apiCall} />
 		} else {
 			return
 		}
 	}
-	
+
 	// A function to open the options menu with the right props.
-	openMenu = () => {
+	openMenu = (name) => {
 		this.setState({
 			isActive: !this.state.isActive,
+			menuName: name
 		})
 	}
 
@@ -50,7 +51,7 @@ class HomeControl extends Component {
 						<button className="container--button--icon" onClick={() => this.apiCall("wifi/A/toggle")}>
 							<i className="fas fa-power-off"></i>
 						</button>
-						<button className="container--button--text" onClick={this.openMenu}>Plugs</button>
+						<button className="container--button--text" onClick={() => this.openMenu("Wifi plugs")}>Plugs</button>
 					</div>
 					<div id="ledstrip" className="container--button">
 						<button className="container--button--icon" onClick={() => this.apiCall("led/p/toggle")}>
