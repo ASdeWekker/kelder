@@ -5,29 +5,43 @@ class HcMenu extends Component {
 		super()
 	}
 
+	// Small array for the plugs.
+	// plugs = ["o", "s", "a"]
+
+	// A function to check the status of the plugs and change the view.
+	// componentWillMount() {
+	// 	for (let i in this.plugs) {
+	// 		this.props.plugStatus(i)
+	// 	}
+	// }
+	componentDidMount() {
+		console.log(this.props)
+	}
+
 	render() {
 		return(
-			<div class="home-control-menu-container">
-				<header class="header">
-					<h1 class="header--text">Menu naam</h1>
+			<div className="home-control-menu-container">
+				<header className="header">
+					<h1 className="header--text">{this.props.menuName} En Menu Naam</h1>
 				</header>
 				{/* Bij het openen van het menu moet de status automatisch gechecked worden. */}
-				<div class="buttons">
-					<div class="buttons--button">
-						<a class="buttons--button--link" href="javascript:void(0);"><i class="fas fa-lightbulb"></i></a>
+				{/*onClick={() => this.props.togglePlug("a")*/}
+				<div className="buttons">
+					<div className="buttons--wrapper">
+						<button className="buttons--wrapper--button"><i className="fas fa-lightbulb"></i></button>
 					</div>
-					<div class="buttons--button">
-						<a class="buttons--button--link" href="javascript:void(0);"><i class="fas fa-lightbulb"></i></a>
+					<div className="buttons--wrapper">
+						<button className="buttons--wrapper--button"><i className="fas fa-lightbulb"></i></button>
 					</div>
-					<div class="buttons--button">
-						<a class="buttons--button--link" href="javascript:void(0);"><i class="fas fa-music"></i></a>
+					<div className="buttons--wrapper">
+						<button className="buttons--wrapper--button"><i className="fas fa-music"></i></button>
 					</div>
 				</div>
-				<footer class="footer">
-					<div class="footer--buttons">
-						<h1 class="footer--buttons--prev"><i class="fas fa-angle-double-left"></i></h1>
-						<h1 class="footer--buttons--close"><i class="fas fa-times"></i></h1>
-						<h1 class="footer--buttons--next"><i class="fas fa-angle-double-right"></i></h1>
+				<footer className="footer">
+					<div className="footer--buttons">
+						<h1 className="footer--buttons--prev disabled"><i className="fas fa-angle-double-left"></i></h1>
+						<h1 className="footer--buttons--close"><i className="fas fa-times"></i></h1>
+						<h1 className="footer--buttons--next"><i className="fas fa-angle-double-right"></i></h1>
 					</div>
 				</footer>
 			</div>
