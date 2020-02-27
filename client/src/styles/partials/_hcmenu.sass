@@ -1,8 +1,10 @@
 .home-control-menu-container
+	animation: hcmenu-slide-in ease-in-out 0.2s
 	background: $bg
 	bottom: 0
 	height: 100vh
 	left: 0
+	opacity: 0.9
 	position: absolute
 	width: 100vw
 
@@ -11,6 +13,7 @@
 		width: 100vw
 
 		&--text
+			font-size: 2.5em
 			height: 50px
 			line-height: 50px
 			margin: 0
@@ -26,14 +29,19 @@
 		justify-content: space-between
 		width: 100vw
 
-		&--button
+		&--wrapper
 			align-items: center
 			display: flex
 			height: 160px
 			justify-content: center
 			width: 200px
 
-			&--link
+			// Last one is the music note, looks better if it's just a bit to the left.
+			&:nth-child(3)
+				position: relative
+				right: 10px
+
+			&--button
 				font-size: 8em
 				height: auto
 				width: auto
@@ -43,8 +51,6 @@
 
 	.footer
 		height: 50px
-		bottom: 0
-		position: fixed
 		width: 100vw
 
 		&--buttons
@@ -55,9 +61,10 @@
 			width: 100vw
 
 			h1
+				cursor: pointer
 				font-size: 3em
 				margin: 0
-				width: 26vw
+				width: 40px
 
 			&--prev
 				text-align: left
@@ -67,3 +74,8 @@
 
 			&--next
 				text-align: right
+
+			// For when a previous or next button is disabled.
+			.disabled
+				color: lighten($bg, 10%)
+				cursor: not-allowed
