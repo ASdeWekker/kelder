@@ -12,10 +12,10 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Header />
-				<section className="bottom">
+				<footer className="bottom">
 					<MostUsedPlaces />
 					<HomeControl />
-				</section>
+				</footer>
 			</div>
 		)
 	}
