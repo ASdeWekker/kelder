@@ -1,11 +1,12 @@
 // The styles for the menu.
 
 .right-menu
+	animation: right-menu-slide-in 0.2 ease-in-out
 	background: $bg-alt
 	height: 100vh
-	position: relative
-	right: 100vw
-	top: -80px
+	position: absolute
+	right: 0
+	top: 0
 	width: 100vw
 	z-index: 9999
 
@@ -26,12 +27,12 @@
 				cursor: pointer
 				float: right
 
-.right-menu-active
-	animation: right-menu-slide-in 0.1s ease-out
-	// display: block
-	right: 0
+// .right-menu-active
+// 	animation: right-menu-slide-in 0.1s ease-out
+// 	// display: block
+// 	right: 0
 
-.right-menu-inactive
-	animation: right-menu-slide-out 0.2s ease-out
-	// display: none
-	right: -100vw
+// .right-menu-inactive
+// 	animation: right-menu-slide-out 0.2s ease-out
+// 	// display: none
+// 	right: -100vw

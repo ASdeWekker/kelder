@@ -14,14 +14,11 @@ class Header extends Component {
 				{ shortName: "s", longName: "Standing", status: "OFF" },
 				{ shortName: "a", longName: "Amp", status: "OFF" },
 			],
+			// Set a state for the menu being active.
+			isActive: false,
 		}
 		// Set the date options.
 		this.dateStringOptions = { month: "long", day: "numeric"}
-		// Bind this to the click functions.
-		this.handleClick = this.handleClick.bind(this)
-		this.checkButton = this.checkButton.bind(this)
-		// Get the right-menu.
-		this.rightMenu = React.createRef()
 	}
 
 	componentDidMount() {
@@ -30,7 +27,7 @@ class Header extends Component {
 		// Check the status after the page has been reloaded.
 		let prod = false
 		// prod = true
-		if (prod) this.checkButton() //DISABLED DURING DEVELOPMENT.
+		if (prod) this.checkStatusButton() //DISABLED DURING DEVELOPMENT.
 	}
 	componentWillUnmount() { clearInterval(this.timerID) }
 	tick() { this.setState({ date: new Date() }) }
@@ -54,17 +51,19 @@ class Header extends Component {
 				this.setState({ switchStatus: changedObj })
 			})
 	}
-	checkButton() {
+	checkStatusButton = () => {
 		// eslint-disable-next-line
 		this.state.switchStatus.map(el => {
 			this.checkStatus(el.shortName)
 		})
 	}
 
-	// Toggle the right menu.
-	handleClick() {
-		this.rightMenu.current.classList.remove("right-menu-inactive")
-		this.rightMenu.current.classList.add("right-menu-active")
+	// Check if the menu should be active and toggle it.
+	menuActive = () => {
+		return this.state.isActive ? <Menu toggleMenu={this.toggleMenu} /> : ""
+	}
+	toggleMenu = () => {
+		this.setState({ isActive: !this.state.isActive })
 	}
 
 	render() {
@@ -81,7 +80,10 @@ class Header extends Component {
 							<span className="left-status">{this.state.switchStatus[2].longName}:</span>
 							<span className="right-status">{this.state.switchStatus[2].status}<br /></span>
 						</p>
-						<button className="header--container--left--check-button" onClick={this.checkButton}>Check status</button>
+						<button
+							className="header--container--left--check-button"
+							onClick={this.checkStatusButton}
+						>Check status</button>
 					</div>
 					<div className="header--container--right">
 						<div className="header--container--right--wrapper">
@@ -92,13 +94,14 @@ class Header extends Component {
 							</h1>
 						</div>
 						<div className="header--container--right--button-wrapper">
-							<button className="header--container--right--button-wrapper--right-menu-button" onClick={this.handleClick}>Menu</button>
+							<button
+								className="header--container--right--button-wrapper--right-menu-button"
+								onClick={this.toggleMenu}
+							>Menu</button>
 						</div>
 					</div>
 				</div>
-				<div className="right-menu" ref={this.rightMenu}>
-					<Menu rightMenuRef={this.rightMenu} />
-				</div>
+				{this.menuActive()}
 			</header>
 		)
 	}
