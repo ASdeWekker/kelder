@@ -29,18 +29,28 @@ class HomeControl extends Component {
 	// A function to render the menu.
 	menu = () => {
 		if (this.state.isActive) {
-			return <HcMenu options={this.state} apiCall={this.apiCall} />
+			return (
+				<HcMenu
+					options={this.state}
+					apiCall={this.apiCall}
+					toggleMenu={this.toggleMenu}
+				/>
+			)
 		} else {
 			return
 		}
 	}
 
 	// A function to open the options menu with the right props.
-	openMenu = (name) => {
-		this.setState({
-			isActive: !this.state.isActive,
-			menuName: name
-		})
+	toggleMenu = (name) => {
+		if (!name) {
+			this.setState({
+				isActive: !this.state.isActive,
+				menuName: name
+			})
+		} else {
+			this.setState({ isActive: !this.state.isActive })
+		}
 	}
 
 	render() {
@@ -51,7 +61,7 @@ class HomeControl extends Component {
 						<button className="container--button--icon" onClick={() => this.apiCall("wifi/A/toggle")}>
 							<i className="fas fa-power-off"></i>
 						</button>
-						<button className="container--button--text" onClick={() => this.openMenu("Wifi plugs")}>Plugs</button>
+						<button className="container--button--text" onClick={() => this.toggleMenu("Wifi plugs")}>Plugs</button>
 					</div>
 					<div id="ledstrip" className="container--button">
 						<button className="container--button--icon" onClick={() => this.apiCall("led/p/toggle")}>

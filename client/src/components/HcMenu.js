@@ -7,7 +7,7 @@ class HcMenu extends Component {
 	}
 
 	// A function to check the status of the plugs and change the view.
-	// componentWillMount() {
+	// componentDidMount() {
 	// 	for (let i in this.plugs) {
 	// 		this.props.plugStatus(i)
 	// 	}
@@ -16,10 +16,6 @@ class HcMenu extends Component {
 	// apiCall = () => {
 	// 	this.props.fetchFunction.apiCall()
 	// }
-	closeIt = () => {
-		let menu = document.querySelector(".home-control-menu-container")
-		menu.remove()
-	}
 
 	render() {
 		return(
@@ -28,7 +24,6 @@ class HcMenu extends Component {
 					<h1 className="header--text">{this.props.options.menuName}</h1>
 				</header>
 				{/* Bij het openen van het menu moet de status automatisch gechecked worden. */}
-				{/*onClick={() => this.props.togglePlug("a")*/}
 				<div className="buttons">
 					<div className="buttons--wrapper">
 						<button
@@ -54,7 +49,7 @@ class HcMenu extends Component {
 						<h1 className="footer--buttons--prev disabled"><i className="fas fa-angle-double-left"></i></h1>
 						<h1
 							className="footer--buttons--close"
-							onClick={this.closeIt}
+							onClick={this.props.toggleMenu}
 						><i className="fas fa-times"></i></h1>
 						<h1 className="footer--buttons--next"><i className="fas fa-angle-double-right"></i></h1>
 					</div>
