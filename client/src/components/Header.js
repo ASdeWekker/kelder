@@ -15,7 +15,7 @@ class Header extends Component {
 				{ shortName: "a", longName: "Amp", status: "OFF" },
 			],
 			// Set a state for the menu being active.
-			isActive: false,
+			menuActive: false,
 		}
 		// Set the date options.
 		this.dateStringOptions = { month: "long", day: "numeric"}
@@ -26,11 +26,19 @@ class Header extends Component {
 		this.timerID = setInterval(() => this.tick(), 5000)
 		// Check the status after the page has been reloaded.
 		let prod = false
-		// prod = true
-		if (prod) this.checkStatusButton() //DISABLED DURING DEVELOPMENT.
+		// prod = true //DISABLED DURING DEVELOPMENT.
+		if (prod) this.checkStatusButton()
 	}
-	componentWillUnmount() { clearInterval(this.timerID) }
-	tick() { this.setState({ date: new Date() }) }
+
+	componentWillUnmount() {
+		// Clear the date interval.
+		clearInterval(this.timerID)
+	}
+
+	tick() { this.setState({
+		// Set the date.
+		date: new Date() })
+	}
 
 	// Check the status of the switches and set the new state.
 	checkStatus = (dev) => {
@@ -51,6 +59,8 @@ class Header extends Component {
 				this.setState({ switchStatus: changedObj })
 			})
 	}
+
+	// For use with a button to check the status of the devices.
 	checkStatusButton = () => {
 		// eslint-disable-next-line
 		this.state.switchStatus.map(el => {
@@ -60,10 +70,10 @@ class Header extends Component {
 
 	// Check if the menu should be active and toggle it.
 	menuActive = () => {
-		return this.state.isActive ? <Menu toggleMenu={this.toggleMenu} /> : ""
+		return this.state.menuActive ? <Menu toggleMenu={this.toggleMenu} /> : ""
 	}
 	toggleMenu = () => {
-		this.setState({ isActive: !this.state.isActive })
+		this.setState({ menuActive: !this.state.menuActive })
 	}
 
 	render() {
