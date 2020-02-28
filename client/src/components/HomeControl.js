@@ -44,12 +44,12 @@ class HomeControl extends Component {
 	// A function to open the options menu with the right props.
 	toggleMenu = (name) => {
 		if (!name) {
+			this.setState({ isActive: !this.state.isActive })
+		} else {
 			this.setState({
 				isActive: !this.state.isActive,
 				menuName: name
 			})
-		} else {
-			this.setState({ isActive: !this.state.isActive })
 		}
 	}
 
