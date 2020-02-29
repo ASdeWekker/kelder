@@ -10,9 +10,10 @@ class Header extends Component {
 			date: new Date(),
 			// Set the state switch statuses.
 			switchStatus: [
-				{ shortName: "o", longName: "Overhead", status: "OFF" },
-				{ shortName: "s", longName: "Standing", status: "OFF" },
-				{ shortName: "a", longName: "Amp", status: "OFF" },
+				{ fetchArg: "wifi/o", name: "Overhead", status: "OFF" },
+				{ fetchArg: "wifi/s", name: "Standing", status: "OFF" },
+				{ fetchArg: "wifi/a", name: "Amp", status: "OFF" },
+				{ fetchArg: "led/s", name: "Ledstrip", status: "OFF" },
 			],
 			// Set a state for the menu being active.
 			menuActive: false,
@@ -41,8 +42,8 @@ class Header extends Component {
 	}
 
 	// Check the status of the switches and set the new state.
-	checkStatus = (dev) => {
-		fetch(`/api/wifi/${dev}/status`, {
+	checkStatus = (arg) => {
+		fetch(`/api/${arg}/status`, {
 			method:"get",
 			dataType:"json",
 			headers: {
@@ -53,7 +54,7 @@ class Header extends Component {
 			.then(res => {
 				let changedObj = this.state.switchStatus
 				changedObj.map(el => {
-					if (el.shortName === dev) el.status = res.status.toUpperCase()
+					if (el.fetchArg === arg) el.status = res.status.toUpperCase()
 					return el
 				})
 				this.setState({ switchStatus: changedObj })
@@ -64,7 +65,7 @@ class Header extends Component {
 	checkStatusButton = () => {
 		// eslint-disable-next-line
 		this.state.switchStatus.map(el => {
-			this.checkStatus(el.shortName)
+			this.checkStatus(el.fetchArg)
 		})
 	}
 
@@ -83,12 +84,14 @@ class Header extends Component {
 				<div className="header--container">
 					<div className="header--container--left">
 						<p className="header--container--left--status">
-							<span className="left-status">{this.state.switchStatus[0].longName}:</span>
-							<span className="right-status">{this.state.switchStatus[0].status}<br /></span>
-							<span className="left-status">{this.state.switchStatus[1].longName}:</span>
-							<span className="right-status">{this.state.switchStatus[1].status}<br /></span>
-							<span className="left-status">{this.state.switchStatus[2].longName}:</span>
-							<span className="right-status">{this.state.switchStatus[2].status}<br /></span>
+							<span className="left-status">{this.state.switchStatus[0].name}:</span>
+							<span className="right-status">{this.state.switchStatus[0].status}</span><br />
+							<span className="left-status">{this.state.switchStatus[1].name}:</span>
+							<span className="right-status">{this.state.switchStatus[1].status}</span><br />
+							<span className="left-status">{this.state.switchStatus[2].name}:</span>
+							<span className="right-status">{this.state.switchStatus[2].status}</span><br />
+							<span className="left-status">{this.state.switchStatus[3].name}:</span>
+							<span className="right-status">{this.state.switchStatus[3].status}</span><br />
 						</p>
 						<button
 							className="header--container--left--check-button"

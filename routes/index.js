@@ -72,12 +72,10 @@ router.get("/pc/:power", (req, res) => {
 // Route for using the ledstrip.
 router.get("/led/:mode/:arg", (req, res) => {
 	let { mode, arg } = req.params
-	let command = `/usr/bin/python3 /home/alex/dotfiles/scripts/python/ledstrip.py -${mode} ${arg}`
+	let command = `/usr/bin/python3 /home/alex/dotfiles/scripts/python/ledstrip.py -${mode} ${arg !== "status" ? arg : ""}`
 	exec(command, (err, stdout, stderr) => {
 		logger.debug(err ? err : stderr ? stderr : stdout)
-		let message = err ? "" : stderr ? "" : "The command has been executed."
 		let parsedOut = JSON.parse(stdout)
-		parsedOut.message = message
 		res.json(parsedOut)
 	})
 })
