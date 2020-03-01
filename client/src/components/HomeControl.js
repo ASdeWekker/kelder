@@ -27,7 +27,7 @@ class HomeControl extends Component {
 	}
 
 	// A function to render the menu.
-	menu = () => {
+	renderMenu = () => {
 		if (this.state.isActive) {
 			return (
 				<HcMenu
@@ -55,28 +55,27 @@ class HomeControl extends Component {
 
 	render() {
 		return (
-			<div className="home-control">
-				<div className="container">
-					<div id="plugs" className="container--button">
-						<button className="container--button--icon" onClick={() => this.apiCall("wifi/A/toggle")}>
-							<i className="fas fa-power-off"></i>
-						</button>
-						<button className="container--button--text" onClick={() => this.toggleMenu("Wifi plugs")}>Plugs</button>
-					</div>
-					<div id="ledstrip" className="container--button">
-						<button className="container--button--icon" onClick={() => this.apiCall("led/p/toggle")}>
-							<i className="fas fa-power-off"></i>
-						</button>
-						<button className="container--button--text">Ledstrip</button>
-					</div>
-					<div id="pc" className="container--button">
-						<button className="container--button--icon" onClick={() => this.apiCall("pc/on")}>
-							<i className="fas fa-power-off"></i>
-						</button>
-						<button className="container--button--text" onClick={() => this.apiCall("pc/on")}>PC</button>
-					</div>
+			// hc stands for home-control.
+			<div className="hc">
+				<div id="plugs" className="hc--button">
+					<button className="hc--button--icon" onClick={() => this.apiCall("wifi/A/toggle")}>
+						<i className="fas fa-power-off"></i>
+					</button>
+					<button className="hc--button--text" onClick={() => this.toggleMenu("Wifi plugs")}>Plugs</button>
 				</div>
-				{this.menu()}
+				<div id="ledstrip" className="hc--button">
+					<button className="hc--button--icon" onClick={() => this.apiCall("led/p/toggle")}>
+						<i className="fas fa-power-off"></i>
+					</button>
+					<button className="hc--button--text">Ledstrip</button>
+				</div>
+				<div id="pc" className="hc--button">
+					<button className="hc--button--icon" onClick={() => this.apiCall("pc/on")}>
+						<i className="fas fa-power-off"></i>
+					</button>
+					<button className="hc--button--text" onClick={() => this.apiCall("pc/on")}>PC</button>
+				</div>
+				{this.renderMenu()}
 			</div>
 		)
 	}

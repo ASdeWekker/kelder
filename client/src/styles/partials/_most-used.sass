@@ -1,36 +1,32 @@
 // Style for the most used places.
 
-.most-used-places
+.mup
 	background: $bg
+	display: flex
+	flex-flow: row nowrap
 	height: 96px
+	justify-content: space-evenly
 	width: 100vw
 
-	.container
-		display: flex
-		flex-flow: row nowrap
-		height: 96px
-		justify-content: space-evenly
-		width: 100vw
+	&--button
+		height: 80px
+		margin-top: 8px
+		width: 62px
 
-		&--button
-			height: 80px
-			margin-top: 8px
+		&--circle
+			align-items: center
+			background: lighten($bg, 8%)
+			border-radius: 50%
+			color: $text
+			display: flex
+			font-size: 40.6px //2.9em
+			height: 62px
+			justify-content: center
 			width: 62px
 
-			&--circle
-				align-items: center
-				background: lighten($bg, 8%)
-				border-radius: 50%
-				color: $text
-				display: flex
-				font-size: 40.6px //2.9em
-				height: 62px
-				justify-content: center
-				width: 62px
-
-			&--text
-				color: $text-alt
-				font-size: 1.13em //Gives a computed size of 14px
-				margin: 0
-				text-align: center
-				width: 62px
+		&--text
+			color: $text-alt
+			font-size: 1.13em //Gives a computed size of around 14px
+			margin: 0
+			text-align: center
+			width: 62px
