@@ -1,4 +1,4 @@
-.home-control-menu-container
+.hcm-container
 	animation: hcmenu-slide-in ease-in-out 0.2s
 	background: $bg
 	bottom: 0
@@ -7,7 +7,7 @@
 	position: absolute
 	width: 100vw
 
-	.header
+	&--header
 		height: 50px
 		width: 100vw
 
@@ -19,13 +19,13 @@
 			text-align: center
 			width: 100vw
 
-	.buttons
+	&--buttons
 		align-items: center
 		display: flex
 		flex-flow: column nowrap
 		height: calc(100vh - 200px)
 		margin: 50px 0
-		justify-content: space-between
+		justify-content: center
 		width: 100vw
 
 		&--wrapper
@@ -48,7 +48,7 @@
 				&:hover
 					color: lighten($bg, 50%)
 
-	.footer
+	&--footer
 		height: 50px
 		width: 100vw
 
