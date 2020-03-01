@@ -67,13 +67,13 @@ class HomeControl extends Component {
 					<button className="hc--button--icon" onClick={() => this.apiCall("led/p/toggle")}>
 						<i className="fas fa-power-off"></i>
 					</button>
-					<button className="hc--button--text">Ledstrip</button>
+					<button className="hc--button--text" onClick={() => {this.toggleMenu("Ledstrip")}}>Ledstrip</button>
 				</div>
 				<div id="pc" className="hc--button">
 					<button className="hc--button--icon" onClick={() => this.apiCall("pc/on")}>
 						<i className="fas fa-power-off"></i>
 					</button>
-					<button className="hc--button--text" onClick={() => this.apiCall("pc/on")}>PC</button>
+					<button className="hc--button--text" onClick={() => this.toggleMenu("Pc")}>PC</button>
 				</div>
 				{this.renderMenu()}
 			</div>
