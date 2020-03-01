@@ -10,10 +10,10 @@ class Header extends Component {
 			date: new Date(),
 			// Set the state switch statuses.
 			switchStatus: [
-				{ fetchArg: "wifi/o", name: "Overhead", status: "OFF" },
-				{ fetchArg: "wifi/s", name: "Standing", status: "OFF" },
-				{ fetchArg: "wifi/a", name: "Amp", status: "OFF" },
-				{ fetchArg: "led/s", name: "Ledstrip", status: "OFF" },
+				{ id: 0, fetchArg: "wifi/o", name: "Overhead", status: "OFF" },
+				{ id: 1, fetchArg: "wifi/s", name: "Standing", status: "OFF" },
+				{ id: 2, fetchArg: "wifi/a", name: "Amp", status: "OFF" },
+				{ id: 3, fetchArg: "led/s", name: "Ledstrip", status: "OFF" },
 			],
 			// Set a state for the menu being active.
 			menuActive: false,
@@ -77,41 +77,43 @@ class Header extends Component {
 		this.setState({ menuActive: !this.state.menuActive })
 	}
 
+	renderStatus = () => {
+		return (
+			<div className="header--left--status">
+				{this.state.switchStatus.map(item => (
+					<React.Fragment key={item.id}>
+						<span className="left-status">{item.name}:</span>
+						<span className="right-status">{item.status}</span><br />
+					</React.Fragment>
+				))}
+			</div>
+		)
+	}
+
 	render() {
 		return (
 			<header className="header">
 				{ /* This is where the header resides. Info about which devices are on is shown here. */ }
-				<div className="header--container">
-					<div className="header--container--left">
-						<p className="header--container--left--status">
-							<span className="left-status">{this.state.switchStatus[0].name}:</span>
-							<span className="right-status">{this.state.switchStatus[0].status}</span><br />
-							<span className="left-status">{this.state.switchStatus[1].name}:</span>
-							<span className="right-status">{this.state.switchStatus[1].status}</span><br />
-							<span className="left-status">{this.state.switchStatus[2].name}:</span>
-							<span className="right-status">{this.state.switchStatus[2].status}</span><br />
-							<span className="left-status">{this.state.switchStatus[3].name}:</span>
-							<span className="right-status">{this.state.switchStatus[3].status}</span><br />
-						</p>
-						<button
-							className="header--container--left--check-button"
-							onClick={this.checkStatusButton}
-						>Check status</button>
+				<div className="header--left">
+					{this.renderStatus()}
+					<button
+						className="header--left--check-button"
+						onClick={this.checkStatusButton}
+					>Check status</button>
+				</div>
+				<div className="header--right">
+					<div className="header--right--wrapper">
+						<h1 className="header--right--wrapper--text">Kelder<br />
+							<span className="header--right--wrapper--text--date">
+								{this.state.date.toLocaleDateString("nl-NL", this.dateStringOptions)}
+							</span>
+						</h1>
 					</div>
-					<div className="header--container--right">
-						<div className="header--container--right--wrapper">
-							<h1 className="header--container--right--wrapper--text">Kelder<br />
-								<span className="header--container--right--wrapper--text--date">
-									{this.state.date.toLocaleDateString("nl-NL", this.dateStringOptions)}
-								</span>
-							</h1>
-						</div>
-						<div className="header--container--right--button-wrapper">
-							<button
-								className="header--container--right--button-wrapper--right-menu-button"
-								onClick={this.toggleMenu}
-							>Menu</button>
-						</div>
+					<div className="header--right--button-wrapper">
+						<button
+							className="header--right--button-wrapper--right-menu-button"
+							onClick={this.toggleMenu}
+						>Menu</button>
 					</div>
 				</div>
 				{this.menuActive()}

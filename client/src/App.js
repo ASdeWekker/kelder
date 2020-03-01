@@ -10,13 +10,13 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="App">
+			<>
 				<Header />
 				<footer className="bottom">
 					<MostUsedPlaces />
 					<HomeControl />
 				</footer>
-			</div>
+			</>
 		)
 	}
 }

@@ -17,7 +17,7 @@
 *, *:before, *:after
 	box-sizing: inherit
 
-html, body, #root, .App
+html, body, #root
 	background: $bg
 	height: 100vh
 	margin: 0
@@ -48,19 +48,18 @@ html
 
 	body
 		#root
-			.App
-				.bottom
-					bottom: 0
-					height: 206px
-					left: 0
-					position: fixed
-					width: 100vw
+			.bottom
+				bottom: 0
+				height: 206px
+				left: 0
+				position: fixed
+				width: 100vw
 
 
 // Status specific stylings.
 
 // This is for when a button menu is open and active.
-#root .App .bottom .home-control .container .menu-active
+#root .bottom .home-control .container .menu-active
 	background: $text
 
 	button

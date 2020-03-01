@@ -4,25 +4,25 @@
 	animation: right-menu-slide-in 0.2s ease-in-out
 	background: $bg-alt
 	height: 100vh
-	position: fixed
+	position: absolute
 	right: 0
 	top: 0
 	width: 100vw
 	z-index: 9999
 
-	&--menu
-		height: 100vh
-		width: 100vw
+	&--title
+		animation: right-menu-slide-in 0.2s ease-in-out
+		bottom: 0
+		height: 64px
+		right: 0
+		line-height: 64px
+		margin: 0 5vw
+		position: absolute
+		width: 90vw
 
-		&--h1
-			bottom: -65vh
-			height: 64px
-			left: 0
-			line-height: 64px
-			margin: 0 5vw
-			position: relative
-			width: 90vw
-
-			span
-				cursor: pointer
-				float: right
+		span
+			color: $text
+			cursor: pointer
+		
+		&--close-button
+			float: right

@@ -1,74 +1,70 @@
 // Styles for the header.
 
 .header
+	clear: both
+	color: $text-alt
+	display: flex
 	height: $headerHeight
+	justify-content: flex-start
 	width: 100vw
 
-	&--container
-		clear: both
-		color: $text-alt
-		display: flex
+	&--left, &--right
 		height: $headerHeight
-		justify-content: flex-start
-		width: 100vw
+		width: 50vw
 
-		&--left, &--right
+	&--left
+		align-items: center
+		display: flex
+		justify-content: space-evenly
+
+		&--status
+			margin-left: 16px
+			width: 28vw
+
+			.left-status
+				display: inline-block
+				margin-right: 6px
+				text-align: right
+				width: 68px
+		
+		&--check-button
+			border: 2px solid $text
+			border-radius: 22px
+			font-size: 1.1em
+			padding: 0.3em 0
+			width: 70px
+
+	&--right
+		align-items: center
+		display: flex
+
+		&--wrapper
 			height: $headerHeight
-			width: 50vw
+			width: calc(100% - 1px)
 
-		&--left
-			align-items: center
-			display: flex
-			justify-content: space-evenly
+			h1, h2
+				font-size: 1.5em
+				margin-right: 15px
+				text-align: right
 
-			&--status
-				margin-left: 16px
-				width: 28vw
+			&--text
+				font-weight: 400
+				letter-spacing: -2px
 
-				.left-status
-					display: inline-block
-					margin-right: 6px
-					text-align: right
-					width: 68px
-			
-			&--check-button
+				&--date
+					font-weight: 100
+					letter-spacing: -1px
+		
+		&--button-wrapper
+			height: $headerHeight
+			overflow: visible
+			width: 1px
+
+			&--right-menu-button
 				border: 2px solid $text
-				border-radius: 22px
-				font-size: 1.1em
-				padding: 0.3em 0
-				width: 70px
-
-		&--right
-			align-items: center
-			display: flex
-
-			&--wrapper
-				height: $headerHeight
-				width: calc(100% - 1px)
-
-				h1, h2
-					font-size: 1.5em
-					margin-right: 15px
-					text-align: right
-
-				&--text
-					font-weight: 400
-					letter-spacing: -2px
-
-					&--date
-						font-weight: 100
-						letter-spacing: -1px
-			
-			&--button-wrapper
-				height: $headerHeight
-				overflow: visible
-				width: 1px
-
-				&--right-menu-button
-					border: 2px solid $text
-					border-radius: 24px
-					font-size: 1.6em
-					padding: 0.4em 1.1em 0.4em 0.6em
-					position: relative
-					right: 77px
-					top: 61vh
+				border-radius: 24px
+				font-size: 1.6em
+				padding: 0.4em 1.1em 0.4em 0.6em
+				position: relative
+				right: 77px
+				top: 61vh
