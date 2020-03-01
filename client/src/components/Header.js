@@ -27,7 +27,7 @@ class Header extends Component {
 		this.timerID = setInterval(() => this.tick(), 5000)
 		// Check the status after the page has been reloaded.
 		let prod = false
-		// prod = true //DISABLED DURING DEVELOPMENT.
+		prod = true //DISABLED DURING DEVELOPMENT.
 		if (prod) this.checkStatusButton()
 	}
 
