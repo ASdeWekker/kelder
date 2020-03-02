@@ -46,6 +46,11 @@ class HcMenu extends Component {
 							</div>
 						</>
 					}
+					{name === "Pc" &&
+						<>
+							<h1>Pc dingen</h1>
+						</>
+					}
 				</div>
 				<footer className="hcm-container--footer">
 					<div className="hcm-container--footer--buttons">

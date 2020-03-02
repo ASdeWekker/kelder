@@ -6,20 +6,20 @@ class Penp extends Component {
 
 		this.penp = {
 			practice: [
-				{ name: "Auth-JWT", url: "#" },
-				{ name: "PostgreSQL", url: "#" },
-				{ name: "AddPage", url: "#" },
-				{ name: "Session", url: "#" },
-				{ name: "MeanTut", url: "#" },
-				{ name: "NodeMongo", url: "#" },
-				{ name: "ExpressTut", url: "#" },
+				{ id: 0, name: "Auth-JWT", url: "#" },
+				{ id: 1, name: "PostgreSQL", url: "#" },
+				{ id: 2, name: "AddPage", url: "#" },
+				{ id: 3, name: "Session", url: "#" },
+				{ id: 4, name: "MeanTut", url: "#" },
+				{ id: 5, name: "NodeMongo", url: "#" },
+				{ id: 6, name: "ExpressTut", url: "#" },
 			],
 			projects: [
-				{ name: "Weight", url: "http://10.8.0.5:4010" },
-				{ name: "Recipes", url: "#" },
-				{ name: "Speedtest", url: "#" },
-				{ name: "URLName", url: "#" },
-				{ name: "Darten", url: "#" },
+				{ id: 0, name: "Weight", url: "http://10.8.0.5:4010" },
+				{ id: 1, name: "Recipes", url: "#" },
+				{ id: 2, name: "Speedtest", url: "#" },
+				{ id: 3, name: "URLName", url: "#" },
+				{ id: 4, name: "Darten", url: "#" },
 			],
 		}
 	}
@@ -37,7 +37,7 @@ class Penp extends Component {
 					</h2>
 					<div className="container--wrapper">
 						{this.penp.practice.map(item => (
-							<div className={"container--wrapper--button " + item.name.toLowerCase()}>
+							<div key={item.id} className={"container--wrapper--button " + item.name.toLowerCase()}>
 								<button className="container--wrapper--button--link">
 									<a href={item.url}>{item.name}</a>
 								</button>
@@ -50,7 +50,7 @@ class Penp extends Component {
 					<h2 className="container--header">Projects</h2>
 					<div className="container--wrapper">
 						{this.penp.projects.map(item => (
-							<div className={"container--wrapper--button " + item.name.toLowerCase()}>
+							<div key={item.id} className={"container--wrapper--button " + item.name.toLowerCase()}>
 								<button className="container--wrapper--button--link">
 									<a href={item.url}>{item.name}</a>
 								</button>
