@@ -19,26 +19,21 @@ class Header extends Component {
 			menuActive: false,
 		}
 		// Set the date options.
-		this.dateStringOptions = { month: "long", day: "numeric"}
+		this.dateStringOptions = { month: "long", day: "numeric" }
 	}
 
 	componentDidMount() {
 		// Check if a new day is available.
-		this.timerID = setInterval(() => this.tick(), 5000)
+		this.timerID = setInterval(() => this.setState({ date: new Date() }), 5000)
 		// Check the status after the page has been reloaded.
 		let prod = false
-		prod = true //DISABLED DURING DEVELOPMENT.
+		// prod = true //DISABLED DURING DEVELOPMENT.
 		if (prod) this.checkStatusButton()
 	}
 
 	componentWillUnmount() {
 		// Clear the date interval.
 		clearInterval(this.timerID)
-	}
-
-	tick() { this.setState({
-		// Set the date.
-		date: new Date() })
 	}
 
 	// Check the status of the switches and set the new state.
