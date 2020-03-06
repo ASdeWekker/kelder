@@ -38,7 +38,7 @@ class Header extends Component {
 
 	// Check the status of the switches and set the new state.
 	checkStatus = (arg) => {
-		fetch(`/api/${arg}/status`, {
+		fetch(`http://127.0.0.1:3099/api/${arg}/status`, {
 			method:"get",
 			dataType:"json",
 			headers: {

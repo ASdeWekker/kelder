@@ -8,15 +8,6 @@ const Req = require("http").request
 const router = express.Router()
 const logger = log4js.getLogger("activity")
 
-// An object to use with the wifi plugs.
-// const plugsAndModes = {
-// 	A: "",
-// 	o: "overhead",
-// 	s: "standing",             NOT NEEDED RIGHT NOW
-// 	a: "amplifier",
-// 	l: ""
-// }
-
 // Log4js configuration.
 log4js.configure({
 	appenders: {
@@ -36,20 +27,16 @@ log4js.configure({
 			pattern: "yyyy-MM-dd-hh",
 			compress: true
 		},
-		out: {
-			type: "stdout"
-		}
+		out: { type: "stdout" }
 	},
-	categories: {
-		default: { appenders: ["file", "dateFile", "out"], level: "trace" }
-	}
+	categories: { default: { appenders: ["file", "dateFile", "out"], level: "trace" } }
 })
 
 
 // Add a warning for someone trying to access the /api endpoint.
 router.get("/", (req, res) => {
 	let ip = req.connection.remoteAddress.split(":")[3]
-	res.json({"message": `This part should not be accessed, your ip (${ip}) will be forwarded to the authorities.`})
+	res.status(200).json({"message": `This part should not be accessed, your ip (${ip}) will be forwarded to the authorities.`})
 })
 
 // Route for turning my pc on or off.
@@ -66,7 +53,7 @@ router.get("/pc/:power", (req, res) => {
 		message = "Wrong command."
 		status = "still on?"
 	}
-	res.json({"message": message, "status": status})
+	res.status(200).json({"message": message, "status": status})
 })
 
 // Route for using the ledstrip.
@@ -76,7 +63,7 @@ router.get("/led/:mode/:arg", (req, res) => {
 	exec(command, (err, stdout, stderr) => {
 		logger.debug(err ? err : stderr ? stderr : stdout)
 		let parsedOut = JSON.parse(stdout)
-		res.json(parsedOut)
+		res.status(200).json(parsedOut)
 	})
 })
 
@@ -89,7 +76,7 @@ router.get("/wifi/:plug/:arg", (req, res) => {
 		let message = err ? "" : stderr ? "" : "A wifi plug has been toggled."
 		let parsedOut = JSON.parse(stdout)
 		parsedOut.message = message
-		res.json(parsedOut)
+		res.status(200).json(parsedOut)
 	})
 })
 

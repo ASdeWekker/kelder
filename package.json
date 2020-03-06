@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "concurrently": "^5.1.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "log4js": "^6.1.2"
   }
