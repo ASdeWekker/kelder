@@ -31,13 +31,14 @@
 		&--wrapper
 			align-items: center
 			display: flex
+			flex-flow: column nowrap
 			height: 160px
 			justify-content: center
-			width: 200px
+			width: 100vw
 
 			// Last one is the music note, looks better if it's just a bit to the left.
-			&:nth-child(3)
-				transform: translate(-10px, 0)
+			// &:nth-child(3)
+			// 	transform: translate(-10px, 0)
 
 			&--button
 				font-size: 8em
@@ -45,14 +46,17 @@
 				width: auto
 
 				&:hover
-					opacity: 0.4
+					color: lighten($text, 30%)
+				
+				i
+					transform: scale(var(--ggs, 4))
 
 	&--footer
 		height: 50px
 		width: 100vw
 
 		&--buttons
-			align-items: center
+			align-items: flex-start
 			display: flex
 			height: 50px
 			justify-content: space-around
@@ -72,6 +76,9 @@
 
 			&--next
 				text-align: right
+			
+			i
+				transform: scale(var(--ggs, 1.7))
 
 			// For when a previous or next button is disabled.
 			.disabled

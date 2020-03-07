@@ -12,27 +12,28 @@ class HcMenu extends Component {
 				<header className="hcm-container--header">
 					<h1 className="hcm-container--header--text">{this.props.options.menuName}</h1>
 				</header>
-				{/* Bij het openen van het menu moet de status automatisch gechecked worden. */}
+				{/* The status should be automatically checked when the menu is opened. This text will be deleted once that is done. */}
 				<div className="hcm-container--buttons">
 					{name === "Wifi plugs" &&
 						<>
 							<div className="hcm-container--buttons--wrapper">
+								<h2 className="hcm-container--buttons--wrapper--item-header">Overhead Desk Lamp</h2>
 								<button
 									className="hcm-container--buttons--wrapper--button"
 									onClick={() => this.props.apiCall("wifi/o/toggle")}
-								><i className="fas fa-lightbulb"></i></button>
+								><i className="gg-bulb"></i></button>
 							</div>
 							<div className="hcm-container--buttons--wrapper">
 								<button
 									className="hcm-container--buttons--wrapper--button"
 									onClick={() => this.props.apiCall("wifi/s/toggle")}
-								><i className="fas fa-lightbulb"></i></button>
+								><i className="gg-bulb"></i></button>
 							</div>
 							<div className="hcm-container--buttons--wrapper">
 								<button
 									className="hcm-container--buttons--wrapper--button"
 									onClick={() => this.props.apiCall("wifi/a/toggle")}
-								><i className="fas fa-music"></i></button>
+								><i className="gg-music-speaker"></i></button>
 							</div>
 						</>
 					}
@@ -59,18 +60,18 @@ class HcMenu extends Component {
 									? "hcm-container--footer--buttons--prev disabled"
 									: "hcm-container--footer--buttons--prev"
 							}>
-							<i className="fas fa-angle-double-left"></i>
+							<i className="gg-arrow-left-o"></i>
 						</h1>
 						<h1
 							className="hcm-container--footer--buttons--close"
 							onClick={this.props.toggleMenu}
-						><i className="fas fa-times"></i></h1>
+						><i className="gg-close-o"></i></h1>
 						<h1 className={
 							this.props.options.menuName === "Pc"
 								? "hcm-container--footer--buttons--next disabled"
 								: "hcm-container--footer--buttons--next"
 						}>
-							<i className="fas fa-angle-double-right"></i>
+							<i className="gg-arrow-right-o"></i>
 						</h1>
 					</div>
 				</footer>

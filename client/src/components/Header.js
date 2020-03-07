@@ -108,7 +108,7 @@ class Header extends Component {
 						<button
 							className="header--right--button-wrapper--right-menu-button"
 							onClick={this.toggleMenu}
-						>Menu</button>
+						><i className="gg-arrow-left-o"></i></button>
 					</div>
 				</div>
 				{this.menuActive()}

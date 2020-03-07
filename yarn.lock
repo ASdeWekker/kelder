@@ -128,6 +128,11 @@ cors@^2.8.5:
     object-assign "^4"
     vary "^1"
 
+css.gg@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/css.gg/-/css.gg-1.0.6.tgz#b8d13288a22e358265676a375ab89425411daaa2"
+  integrity sha512-Bv8GTVkeuSqqkgdCJ+tJopRxf/mp/wP6hkL13BdCSs3FadD0GWyU3gKdjuaaFkfxkgYK+GhjSX3EA+cXLHBFpA==
+
 date-fns@^2.0.1:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.9.0.tgz#d0b175a5c37ed5f17b97e2272bbc1fa5aec677d2"

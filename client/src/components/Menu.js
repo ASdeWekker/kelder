@@ -6,7 +6,7 @@ class Menu extends Component {
 		super()
 
 		// Just a random version version number I'll sometimes update.
-		this.versionNumber = "0.5.5"
+		this.versionNumber = "0.5.8"
 	}
 
 	render() {
@@ -18,7 +18,7 @@ class Menu extends Component {
 					<span
 						className="right-menu--title--close-button"
 						onClick={this.props.toggleMenu}
-					><i className="fas fa-times"></i></span>
+					><i className="gg-close-o"></i></span>
 				</h1>
 			</div>
 		)
