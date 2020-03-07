@@ -10,7 +10,7 @@ class MostUsedPlaces extends Component {
 					onClick={() => {window.location.href = "http://10.8.0.1:81/admin"}}
 				>
 					<div className="mup--button--circle">
-						<i className="fab fa-adversal"></i>
+						<i className="pi-hole"></i>
 					</div>
 					<p className="mup--button--text">Pihole</p>
 				</button>
