@@ -1,10 +1,10 @@
 // Here is where the used queries will reside.
 
 // Queries.
-const getPractice = "select * from practice"
-const getProjects = "select * from projects"
+const getPractice = "select * from oefenen"
+const getProjects = "select * from projecten"
 
 module.exports = {
-	getProjects: getPractice,
-	getPractice: getProjects,
+	getPractice: getPractice,
+	getProjects: getProjects,
 }

@@ -16,18 +16,21 @@ router.get("/", (req, res) => {
 
 // Two routes to get the practice and projects.
 router.get("/practice", (req, res) => {
+	console.log(process.env.PSQLIP)
 	client.query(queries.getPractice)
 		.then(data => {
 			console.log(`Fetched ${data.rows.length} rows`)
 			res.json(data.rows)
-		}).catch(e => console.error(e.stack))
+		})
+		.catch(e => console.error(e.stack))
 })
 router.get("/projects", (req, res) => {
 	client.query(queries.getProjects)
 		.then(data => {
 			console.log(`Fetched ${data.rows.length} rows`)
 			res.json(data.rows)
-		}).catch(e => console.error(e.stack))
+		})
+		.catch(e => console.error(e.stack))
 })
 
 module.exports = router
