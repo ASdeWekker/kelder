@@ -3,7 +3,8 @@ const express = require("express")
 const cors = require("cors")
 
 // Declare routes.
-const indexRouter = require("./routes/index")
+const apiRouter = require("./routes/api")
+const appRouter = require("./routes/app")
 
 // Call the app with express.
 const app = express()
@@ -20,7 +21,8 @@ app.disable("x-powered-by")
 app.use(cors(corsOptions))
 
 // Call the route(s).
-app.use("/api", indexRouter)
+app.use("/api", apiRouter)
+app.use("/app", appRouter)
 
 
 // A route for the root, this should not be accessed.
