@@ -8,27 +8,40 @@
 		opacity: 1
 
 // Sliding the Right menu.
-@keyframes right-menu-slide-in
+@keyframes menu-appear-right
 	0%
-		transform: translate(100vw, 0)
+		opacity: 0
+		transform: translate(5vw, 0)
 	100%
+		opacity: 1
 		transform: translate(0, 0)
-
-@keyframes right-menu-slide-out
-	0%
-		transform: translate(0, 0)
-	100%
-		transform: translate(100vw, 0)
 
 // Sliding the Home Control menu.
-@keyframes hcmenu-slide-in
+@keyframes menu-appear-bottom
 	0%
-		transform: translate(0, 100vh)
+		opacity: 0
+		transform: translate(0, 5vh)
 	100%
+		opacity: 1
 		transform: translate(0, 0)
 
-@keyframes hcmenu-slide-out
+// An animation to go through the colors of the rainbow for the ledstrip status.
+@keyframes rainbow
 	0%
-		transform: translate(0, 0)
+		background: red
+	12.5%
+		background: orange
+	25%
+		background: yellow
+	37.5%
+		background: green
+	50%
+		background: aqua
+	62.5%
+		background: blue
+	75%
+		background: purple
+	87.5%
+		background: pink
 	100%
-		transform: translate(0, 100vh)
+		background: red
