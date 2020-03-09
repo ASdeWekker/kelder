@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Menu from "./Menu"
+import RightMenu from "./RightMenu"
 
 class Header extends Component {
 	constructor(props) {
@@ -66,7 +66,7 @@ class Header extends Component {
 
 	// Check if the menu should be active and toggle it.
 	menuActive = () => {
-		return this.state.menuActive ? <Menu toggleMenu={this.toggleMenu} /> : ""
+		return this.state.menuActive ? <RightMenu toggleMenu={this.toggleMenu} /> : ""
 	}
 	toggleMenu = () => {
 		this.setState({ menuActive: !this.state.menuActive })

@@ -17,6 +17,14 @@
 		height: 50px
 		padding: 0 0.6em
 
+		&:hover
+			border-color: $text-alt
+			transition: border 0.2s
+		
+		&:hover > .hc--button--icon i, &:hover > .hc--button--text
+			color: $text-alt
+			transition: color 0.2s
+
 		&--icon
 			display: block
 			height: 26px

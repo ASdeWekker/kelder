@@ -1,12 +1,12 @@
 import React, { Component } from "react"
 import Penp from "./Penp"
 
-class Menu extends Component {
+class RightMenu extends Component {
 	constructor(props) {
 		super()
 
 		// Just a random version version number I'll sometimes update.
-		this.versionNumber = "0.5.11"
+		this.versionNumber = "0.5.12"
 	}
 
 	render() {
@@ -25,4 +25,4 @@ class Menu extends Component {
 	}
 }
 
-export default Menu
+export default RightMenu
