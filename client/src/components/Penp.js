@@ -4,25 +4,38 @@ class Penp extends Component {
 	constructor(props) {
 		super()
 
-		this.penp = {
-			practice: [
-				{ id: 0, name: "Auth-JWT", url: "#" },
-				{ id: 1, name: "PostgreSQL", url: "#" },
-				{ id: 2, name: "AddPage", url: "#" },
-				{ id: 3, name: "Session", url: "#" },
-				{ id: 4, name: "MeanTut", url: "#" },
-				{ id: 5, name: "NodeMongo", url: "#" },
-				{ id: 6, name: "ExpressTut", url: "#" },
-			],
-			projects: [
-				{ id: 0, name: "Weight", url: "http://10.8.0.5:4010" },
-				{ id: 1, name: "Recipes", url: "#" },
-				{ id: 2, name: "Speedtest", url: "#" },
-				{ id: 3, name: "URLName", url: "#" },
-				{ id: 4, name: "Darten", url: "#" },
-			],
+		// A state for saving the items from the db.
+		this.state = {
+			practice: [],
+			projects: [],
 		}
 	}
+
+	// Fetch the db entries when the component mounts.
+	componentDidMount() {
+		fetch("http://127.0.0.1:3099/app/practice", {
+			method: "get",
+			dataType: "json",
+			headers: {
+				"Accept": "application/json",
+				"Content-Type": "application/json",
+			}
+		})
+			.then(res => res.json())
+			.then(practice => this.setState({practice}))
+
+		fetch("http://127.0.0.1:3099/app/projects", {
+			method: "get",
+			dataType: "json",
+			headers: {
+				"Accept": "application/json",
+				"Content-Type": "application/json",
+			}
+		})
+			.then(res => res.json())
+			.then(projects => this.setState({projects}))
+	}
+
 
 	render() {
 		return (
@@ -36,12 +49,12 @@ class Penp extends Component {
 						</span>
 					</h2>
 					<div className="container--wrapper">
-						{this.penp.practice.map(item => (
+						{this.state.practice.map(item => (
 							<div key={item.id} className={"container--wrapper--button " + item.name.toLowerCase()}>
 								<button className="container--wrapper--button--link">
-									<a href={item.url}>{item.name}</a>
+									<a href={`http://10.8.0.5:${item.port}`}>{item.name}</a>
 								</button>
-								<button className="container--wrapper--button--toggle"><i className="fas fa-power-off"></i></button>
+								<button className="container--wrapper--button--toggle"><i className="gg-log-off"></i></button>
 							</div>
 						))}
 					</div>
@@ -49,12 +62,12 @@ class Penp extends Component {
 				<div className="container projects">
 					<h2 className="container--header">Projects</h2>
 					<div className="container--wrapper">
-						{this.penp.projects.map(item => (
+						{this.state.projects.map(item => (
 							<div key={item.id} className={"container--wrapper--button " + item.name.toLowerCase()}>
 								<button className="container--wrapper--button--link">
-									<a href={item.url}>{item.name}</a>
+									<a href={`http://10.8.0.5:${item.port}`}>{item.name}</a>
 								</button>
-								<button className="container--wrapper--button--toggle"><i className="fas fa-power-off"></i></button>
+								<button className="container--wrapper--button--toggle"><i className="gg-log-off"></i></button>
 							</div>
 						))}
 					</div>

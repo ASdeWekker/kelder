@@ -6,7 +6,7 @@ class Menu extends Component {
 		super()
 
 		// Just a random version version number I'll sometimes update.
-		this.versionNumber = "0.5.8"
+		this.versionNumber = "0.5.11"
 	}
 
 	render() {
