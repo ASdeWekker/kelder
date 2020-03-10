@@ -24,7 +24,7 @@ class Header extends Component {
 
 	componentDidMount() {
 		// Check if a new day is available.
-		this.timerID = setInterval(() => this.setState({ date: new Date() }), 5000)
+		this.timerID = setInterval(() => this.setState({ date: new Date() }), 1000)
 		// Check the status after the page has been reloaded.
 		let prod = false
 		// prod = true //DISABLED DURING DEVELOPMENT.
@@ -89,28 +89,19 @@ class Header extends Component {
 		return (
 			<header className="header">
 				{ /* This is where the header resides. Info about which devices are on is shown here. */ }
-				<div className="header--left">
-					{this.renderStatus()}
-					<button
-						className="header--left--check-button"
-						onClick={this.checkStatusButton}
-					>Check status</button>
-				</div>
-				<div className="header--right">
-					<div className="header--right--wrapper">
-						<h1 className="header--right--wrapper--text">Kelder<br />
-							<span className="header--right--wrapper--text--date">
+					<div className="header--wrapper">
+						<h1 className="header--wrapper--text">De Kelder |&nbsp;
+							<span className="header--wrapper--text--date">
 								{this.state.date.toLocaleDateString("nl-NL", this.dateStringOptions)}
 							</span>
 						</h1>
 					</div>
-					<div className="header--right--button-wrapper">
+					<div className="header--button-wrapper">
 						<button
-							className="header--right--button-wrapper--right-menu-button"
+							className="header--button-wrapper--right-menu-button"
 							onClick={this.toggleMenu}
 						><i className="gg-arrow-left-o"></i></button>
 					</div>
-				</div>
 				{this.menuActive()}
 			</header>
 		)

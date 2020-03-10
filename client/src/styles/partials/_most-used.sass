@@ -1,16 +1,15 @@
 // Style for the most used places.
 
 .mup
-	background: $bg
+	align-items: center
 	display: flex
 	flex-flow: row nowrap
-	height: 96px
+	height: 14vh
 	justify-content: space-evenly
 	width: 100vw
 
 	&--button
-		height: 80px
-		margin-top: 8px
+		height: 62px
 		width: 62px
 
 		&--circle
@@ -28,9 +27,9 @@
 				color: $text-alt
 				transition: color 0.2s
 
-		&--text
-			color: $text-alt
-			font-size: 1.13em //Gives a computed size of around 14px
-			margin: 0
-			text-align: center
-			width: 62px
+// Special hover instructions for the self made pihole icon.
+.pi-hole:hover
+	background: $text-alt
+
+	&:before, &:after
+		background: $text-alt

@@ -10,7 +10,7 @@ class HcMenu extends Component {
 		return (
 			<div className="hcm-container">
 				<header className="hcm-container--header">
-					<h1 className="hcm-container--header--text">{this.props.options.menuName}</h1>
+					<h1 className="hcm-container--header--text">{name}</h1>
 				</header>
 				{/* The status should be automatically checked when the menu is opened. This text will be deleted once that is done. */}
 				<div className="hcm-container--buttons">
@@ -44,7 +44,7 @@ class HcMenu extends Component {
 							<h1>Ledstrip dingen</h1>
 						</>
 					}
-					{name === "Pc" &&
+					{name === "PC" &&
 						<>
 							<h1>Pc dingen</h1>
 						</>
@@ -52,24 +52,30 @@ class HcMenu extends Component {
 				</div>
 				<footer className="hcm-container--footer">
 					<div className="hcm-container--footer--buttons">
-						<h1 className={
-								this.props.options.menuName === "Wifi plugs"
+						<button
+							className={
+								name === "Wifi plugs"
 									? "hcm-container--footer--buttons--button prev disabled"
 									: "hcm-container--footer--buttons--button prev"
-							}>
+							}
+						>
 							<i className="gg-arrow-left-o"></i>
-						</h1>
-						<h1
+						</button>
+						<button
 							className="hcm-container--footer--buttons--button close"
 							onClick={this.props.toggleMenu}
-						><i className="gg-close-o"></i></h1>
-						<h1 className={
-							this.props.options.menuName === "Pc"
-								? "hcm-container--footer--buttons--button next disabled"
-								: "hcm-container--footer--buttons--button next"
-						}>
+						>
+							<i className="gg-close-o"></i>
+						</button>
+						<button
+							className={
+								name === "Pc"
+									? "hcm-container--footer--buttons--button next disabled"
+									: "hcm-container--footer--buttons--button next"
+							}
+						>
 							<i className="gg-arrow-right-o"></i>
-						</h1>
+						</button>
 					</div>
 				</footer>
 			</div>

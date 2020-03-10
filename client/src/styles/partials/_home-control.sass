@@ -3,36 +3,45 @@
 .hc
 	align-items: center
 	display: flex
-	flex-flow: row nowrap
-	height: 110px
-	justify-content: space-evenly
+	height: 23vh
 	width: 100vw
 
-	&--button
+	&--item
 		align-items: center
-		background: $bg
-		border: 2px solid $text
-		border-radius: 30px
 		display: flex
-		height: 50px
-		padding: 0 0.6em
+		height: 150px
+		justify-content: center
+		width: 33.3%
 
-		&:hover
-			border-color: $text-alt
-			transition: border 0.2s
-		
-		&:hover > .hc--button--icon i, &:hover > .hc--button--text
-			color: $text-alt
-			transition: color 0.2s
+		&--wrapper
+			align-items: center
+			border: 2px solid $text
+			border-radius: 24px
+			display: flex
+			flex-flow: column nowrap
+			height: 90%
+			justify-content: space-evenly
+			width: 85%
 
-		&--icon
-			display: block
-			height: 26px
-			margin-right: 6px
-			width: 26px
+			&:hover
+				border-color: $text-alt
+				transition: border 0.2s
 
-			i
-				transform: scale(var(--ggs, 1.6)) translate(3px, 0)
+			&--menu-button
+				transform: scale(var(--ggs, 1.6))
 
-		&--text
-			font-size: 1.4em
+				&:hover
+					color: $text-alt
+					transition: color 0.2s
+
+			&--header
+				color: $text-alt
+				font-size: 1.3em
+				margin: 0
+
+			&--button
+				transform: scale(var(--ggs, 2.2))
+
+				&:hover
+					color: $text-alt
+					transition: color 0.2s

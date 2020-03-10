@@ -58,23 +58,44 @@ class HomeControl extends Component {
 		return (
 			// hc stands for home-control.
 			<div className="hc">
-				<div id="plugs" className="hc--button">
-					<button className="hc--button--icon" onClick={() => this.apiCall("wifi/A/toggle")}>
-						<i className="gg-log-off"></i>
-					</button>
-					<button className="hc--button--text" onClick={() => this.toggleMenu("Wifi plugs")}>Plugs</button>
+				<div className="hc--item plugs">
+					<div className="hc--item--wrapper">
+						<button
+							className="hc--item--wrapper--menu-button"
+							onClick={() => this.toggleMenu("Wifi plugs")}
+						><i className="gg-arrow-up-o"></i></button>
+						<h3 className="hc--item--wrapper--header">Wifi plugs</h3>
+						<button
+							className="hc--item--wrapper--button"
+							onClick={() => this.apiCall("switch/A/toggle")}
+						><i className="gg-log-off"></i></button>
+					</div>
 				</div>
-				<div id="ledstrip" className="hc--button">
-					<button className="hc--button--icon" onClick={() => this.apiCall("led/p/toggle")}>
-						<i className="gg-log-off"></i>
-					</button>
-					<button className="hc--button--text" onClick={() => {this.toggleMenu("Ledstrip")}}>Ledstrip</button>
+				<div className="hc--item ledstrip">
+					<div className="hc--item--wrapper">
+						<button
+							className="hc--item--wrapper--menu-button"
+							onClick={() => this.toggleMenu("Ledstrip")}
+						><i className="gg-arrow-up-o"></i></button>
+						<h3 className="hc--item--wrapper--header">Ledstrip</h3>
+						<button
+							className="hc--item--wrapper--button"
+							onClick={() => this.apiCall("led/p/toggle")}
+						><i className="gg-log-off"></i></button>
+					</div>
 				</div>
-				<div id="pc" className="hc--button">
-					<button className="hc--button--icon" onClick={() => this.apiCall("pc/on")}>
-						<i className="gg-log-off"></i>
-					</button>
-					<button className="hc--button--text" onClick={() => this.toggleMenu("Pc")}>PC</button>
+				<div className="hc--item pc">
+					<div className="hc--item--wrapper">
+						<button
+							className="hc--item--wrapper--menu-button"
+							onClick={() => this.toggleMenu("PC")}
+						><i className="gg-arrow-up-o"></i></button>
+						<h3 className="hc--item--wrapper--header">PC</h3>
+						<button
+							className="hc--item--wrapper--button"
+							onClick={() => this.apiCall("pc/on")}
+						><i className="gg-log-off"></i></button>
+					</div>
 				</div>
 				{this.renderMenu()}
 			</div>
