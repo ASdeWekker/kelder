@@ -13,6 +13,7 @@
 	&--title
 		animation: menu-appear-right 0.2s ease-in-out
 		bottom: 3vh
+		color: $text
 		right: 0
 		margin: 0 5vw
 		position: absolute
@@ -23,5 +24,9 @@
 			float: right
 			transform: scale(var(--ggs, 1.5)) translate(-3px, 4px)
 
-		span
-			color: $text
+			&:hover
+				color: $text-alt
+				transition: color 0.2s
+
+		span:first-child
+			color: $text-alt
