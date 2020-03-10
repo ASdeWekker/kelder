@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
 
 // Two routes to get the practice and projects.
 router.get("/practice", (req, res) => {
-	console.log(process.env.PSQLIP)
+	console.log("got it")
 	client.query(queries.getPractice)
 		.then(data => {
 			console.log(`Fetched ${data.rows.length} rows`)
