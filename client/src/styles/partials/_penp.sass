@@ -1,7 +1,7 @@
 // Styles for the PenP section.
 
 .body
-	height: auto
+	height: 176px
 	width: 100vw
 
 	.container
@@ -44,6 +44,10 @@
 				&--toggle
 					margin-left: 0.5em
 					transform: scale(var(--ggs, 1.1)) translate(0, 2px)
+
+					&:hover
+						color: $text-alt
+						transition: color 0.2s
 
 	.container.practice .container--header
 		height: 50px
