@@ -13,7 +13,7 @@ class Penp extends Component {
 
 	// Fetch the db entries when the component mounts.
 	componentDidMount() {
-		fetch("http://127.0.0.1:3099/app/practice", {
+		fetch("http://localhost:3099/app/practice", {
 			method: "get",
 			dataType: "json",
 			headers: {
@@ -24,7 +24,7 @@ class Penp extends Component {
 			.then(res => res.json())
 			.then(practice => this.setState({practice}))
 
-		fetch("http://127.0.0.1:3099/app/projects", {
+		fetch("http://localhost:3099/app/projects", {
 			method: "get",
 			dataType: "json",
 			headers: {
