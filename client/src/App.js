@@ -8,10 +8,18 @@ class App extends Component {
 		return (
 			<>
 				<Header />
-				<footer className="bottom">
-					<MostUsedPlaces />
-					<HomeControl />
-				</footer>
+				<section className="app-body">
+					<img
+						className="app-body--image"
+						src="https://dewekker.dev/images/titus.jpg"
+						alt="FotoTitus"
+						title="Titus"
+						height="300"
+						width="225"
+					/>
+				</section>
+				<MostUsedPlaces />
+				<HomeControl />
 			</>
 		)
 	}
