@@ -6,7 +6,7 @@ class RightMenu extends Component {
 		super()
 
 		// Just a random version version number I'll sometimes update.
-		this.versionNumber = "0.5.12"
+		this.versionNumber = "0.6.3"
 	}
 
 	render() {
@@ -17,7 +17,7 @@ class RightMenu extends Component {
 				<h1 className="right-menu--title" >Practice <span>&amp;</span> Projects
 					<span
 						className="right-menu--title--close-button"
-						onClick={this.props.toggleMenu}
+						onClick={this.props.toggleRightMenu}
 					><i className="gg-close-o"></i></span>
 				</h1>
 			</div>

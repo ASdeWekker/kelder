@@ -1,47 +1,88 @@
-// Styles for the Home Control section.
+// Styles for the status bar, right menu and the home control section.
+
+.srm
+	align-items: center
+	display: flex
+	height: 6vh
+	margin: 0 7vw
+	justify-content: flex-end
+	width: 86vw
+
+	&--status-button
+		margin-right: 40px
+
+	&--right-menu-button, &--status-button
+		i
+			transform: scale(var(--ggs, 2))
 
 .hc
 	align-items: center
 	display: flex
-	height: 23vh
+	height: 26vh
 	width: 100vw
 
 	&--item
 		align-items: center
 		display: flex
-		height: 150px
+		height: 130px
 		justify-content: center
 		width: 33.3%
 
 		&--wrapper
 			align-items: center
-			border: 2px solid $text
-			border-radius: 24px
 			display: flex
 			flex-flow: column nowrap
-			height: 90%
-			justify-content: space-evenly
-			width: 85%
+			height: 100%
+			justify-content: space-between
+			width: 100%
+
+			&:first-child
+				.hc--item--wrapper--icons
+					justify-content: space-evenly
 
 			&:hover
 				border-color: $text-alt
 				transition: border 0.2s
 
 			&--menu-button
-				transform: scale(var(--ggs, 1.6))
+				transform: scale(var(--ggs, 2))
 
 				&:hover
 					color: $text-alt
 					transition: color 0.2s
 
-			&--header
-				color: $text-alt
-				font-size: 1.3em
-				margin: 0
+			&--icons
+				align-items: center
+				display: flex
+				justify-content: center
+				width: 70%
+
+				.gg-bulb
+					transform: scale(var(--ggs, 1.2)) translate(0, -4px)
+				
+				.gg-music-speaker
+					transform: scale(var(--ggs, 1.2))
+				
+				.gg-password, .gg-screen
+					transform: scale(var(--ggs, 1.4))
+				
+				.gg-password
+					&:before
+						box-shadow: 6px 0 0, 12px 0 0, 18px 0 0
+					
+					&:after
+						display: none
+				
+				i:hover
+					color: $text
 
 			&--button
-				transform: scale(var(--ggs, 2.2))
+				transform: scale(var(--ggs, 2.6))
 
 				&:hover
 					color: $text-alt
 					transition: color 0.2s
+
+// Darken the color when a device is off.
+i.off
+	color: darken($text, 35%)

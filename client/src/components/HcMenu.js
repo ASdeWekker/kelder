@@ -63,7 +63,7 @@ class HcMenu extends Component {
 						</button>
 						<button
 							className="hcm-container--footer--buttons--button close"
-							onClick={this.props.toggleMenu}
+							onClick={this.props.toggleDeviceMenu}
 						>
 							<i className="gg-close-o"></i>
 						</button>

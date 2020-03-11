@@ -45,6 +45,10 @@ a:focus
 button::-moz-focus-inner
 	border: none
 
+i:hover
+	color: $text-alt
+	transition: color 0.2s
+
 
 // Starting the normal styling.
 html
@@ -60,10 +64,9 @@ html
 			.app-body
 				align-items: center
 				display: flex
-				height: calc(100vh - 43vh)
+				height: calc(100vh - 52vh)
 				justify-content: center
 				width: 100vw
 
 				&--image
 					border-radius: 25px
-					transform: translate(0, -4vh)
