@@ -43,24 +43,26 @@ router.get("/", (req, res) => {
 
 // Two routes to get the practice and projects.
 router.get("/practice", (req, res) => {
-	console.log("got it")
 	client.query(queries.getPractice)
 		.then(data => {
-			console.log(`Fetched ${data.rows.length} rows`)
+			logger.debug(`Fetched ${data.rows.length} rows`)
 			res.json(data.rows)
 		})
 		.catch(e => {
 			console.error(e.stack)
-			logger.debug("wrong")
+			logger.debug(e)
 		})
 })
 router.get("/projects", (req, res) => {
 	client.query(queries.getProjects)
 		.then(data => {
-			console.log(`Fetched ${data.rows.length} rows`)
+			logger.debug(`Fetched ${data.rows.length} rows`)
 			res.json(data.rows)
 		})
-		.catch(e => console.error(e.stack))
+		.catch(e => {
+			console.error(e.stack)
+			logger.debug(e)
+		})
 })
 
 module.exports = router
