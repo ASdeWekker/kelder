@@ -45,7 +45,7 @@ router.get("/", (req, res) => {
 router.get("/practice", (req, res) => {
 	client.query(queries.getPractice)
 		.then(data => {
-			logger.debug(`Fetched ${data.rows.length} rows`)
+			logger.debug(`Fetched ${data.rows.length} rows from Practice`)
 			res.json(data.rows)
 		})
 		.catch(e => {
@@ -56,7 +56,7 @@ router.get("/practice", (req, res) => {
 router.get("/projects", (req, res) => {
 	client.query(queries.getProjects)
 		.then(data => {
-			logger.debug(`Fetched ${data.rows.length} rows`)
+			logger.debug(`Fetched ${data.rows.length} rows from Projects`)
 			res.json(data.rows)
 		})
 		.catch(e => {
