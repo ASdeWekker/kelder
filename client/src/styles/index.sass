@@ -53,13 +53,16 @@ i:hover
 // Starting the normal styling.
 html
 	animation: fade-app-in 0.3s ease-in-out
-	background: linear-gradient(lighten($bg, 3%), $bg)
+	background: #000
 	box-sizing: border-box
 	color: $text
 	font-family: Arial, sans-serif
 	font-size: 14px
 
 	body
+		background: linear-gradient(lighten($bg, 3%), $bg)
+		border-radius: 0 0 16px 16px
+
 		#root
 			.app-body
 				align-items: center
