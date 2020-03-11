@@ -15,7 +15,7 @@ class HomeControl extends Component {
 
 	// A function to fetch the different API endpoints.
 	apiCall = (endpoint) => {
-		fetch(`http://127.0.0.1:3099/api/${endpoint}`, {
+		fetch(`/api/${endpoint}`, {
 			method: "get",
 			dataType: "json",
 			headers: {
