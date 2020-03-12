@@ -90,10 +90,10 @@ class HomeControl extends Component {
 
 	// For use with a button to check the status of the devices.
 	checkStatusButton = () => {
-		// eslint-disable-next-line
-		this.state.switchStatus.map(el => {
-			this.checkStatus(el.fetchArg)
-		})
+		this.checkStatus("wifi/o")
+		this.checkStatus("wifi/s")
+		this.checkStatus("wifi/a")
+		this.checkStatus("led/s")
 	}
 
 	render() {
