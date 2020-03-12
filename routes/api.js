@@ -2,7 +2,6 @@
 const express = require("express")
 const { exec } = require("child_process")
 const log4js = require("log4js")
-const Req = require("http").request
 
 // Declare the router and log4js.
 const router = express.Router()
