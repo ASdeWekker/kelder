@@ -35,7 +35,7 @@ log4js.configure({
 // Add a warning for someone trying to access the /api endpoint.
 router.get("/", (req, res) => {
 	let ip = req.connection.remoteAddress.split(":")[3]
-	res.status(200).json({"message": `This part should not be accessed, your ip (${ip}) will be forwarded to the authorities.`})
+	res.status(200).json({"message": `This part should not be accessed${ip !== undefined ? ", your ip (${ip}) will be forwarded to the authorities." : "."}`})
 })
 
 // Route for turning my pc on or off.
