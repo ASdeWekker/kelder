@@ -22,11 +22,15 @@
 		&--close-button
 			cursor: pointer
 			float: right
-			transform: scale(var(--ggs, 1.5)) translate(-3px, 4px)
+			height: 32px
+			width: 32px
 
-			&:hover
-				color: $text-alt
-				transition: color 0.2s
+			i
+				transform: scale(var(--ggs, 2)) translate(2px, 2.2px)
+
+				&:hover
+					color: $text-alt
+					transition: color 0.2s
 
 		span:first-child
 			color: $text-alt
