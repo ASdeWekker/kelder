@@ -6,15 +6,19 @@ class RightMenu extends Component {
 		super()
 
 		// Just a random version version number I'll sometimes update.
-		this.versionNumber = "0.6.3"
+		this.versionNumber = "0.6.5"
 	}
 
 	render() {
 		return (
 			<div className="right-menu">
-				<Penp version={this.versionNumber} />
+				<Penp
+					practice={this.props.practice}
+					projects={this.props.projects}
+					version={this.versionNumber}
+				/>
 				<p style={{marginLeft: "16px"}}><a href="http://10.8.0.4:3000">Go to the dev version</a></p>
-				<h1 className="right-menu--title" >Practice <span>&amp;</span> Projects
+				<h1 className="right-menu--title">Practice <span>&amp;</span> Projects
 					<span
 						className="right-menu--title--close-button"
 						onClick={this.props.toggleRightMenu}

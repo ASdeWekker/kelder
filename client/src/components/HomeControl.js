@@ -20,6 +20,9 @@ class HomeControl extends Component {
 				{ id: 3, fetchArg: "led/s", name: "Ledstrip", status: "off" },
 				{ id: 4, fetchArg: null, name: "Pc", status: "on" },
 			],
+			// A state for saving the items from the db.
+			practice: [],
+			projects: [],
 		}
 	}
 
@@ -28,6 +31,28 @@ class HomeControl extends Component {
 		let prod = false
 		prod = true //DISABLED DURING DEVELOPMENT.
 		if (prod) this.checkStatusButton()
+
+		// Fetch the db entries when the component mounts.
+		fetch("/app/practice", {
+			method: "get",
+			dataType: "json",
+			headers: {
+				"Accept": "application/json",
+				"Content-Type": "application/json",
+			}
+		})
+			.then(res => res.json())
+			.then(practice => this.setState({practice}))
+		fetch("/app/projects", {
+			method: "get",
+			dataType: "json",
+			headers: {
+				"Accept": "application/json",
+				"Content-Type": "application/json",
+			}
+		})
+			.then(res => res.json())
+			.then(projects => this.setState({projects}))
 	}
 
 	// A function to fetch the different API endpoints.
@@ -46,7 +71,9 @@ class HomeControl extends Component {
 
 	// A function to render the menu for one of the devices.
 	renderDeviceMenu = () => {
-			return this.state.deviceMenuIsActice ? <HcMenu options={this.state} apiCall={this.apiCall} toggleDeviceMenu={this.toggleDeviceMenu} /> : ""
+			return this.state.deviceMenuIsActice
+				? <HcMenu options={this.state} apiCall={this.apiCall} toggleDeviceMenu={this.toggleDeviceMenu} />
+				: ""
 	}
 	// A function to open the device menu with the right props.
 	toggleDeviceMenu = (name) => {
@@ -62,7 +89,9 @@ class HomeControl extends Component {
 
 	// Check if the menu should be active and toggle it.
 	renderRightMenu = () => {
-		return this.state.rightMenuActive ? <RightMenu toggleRightMenu={this.toggleRightMenu} /> : ""
+		return this.state.rightMenuActive
+			? <RightMenu practice={this.state.practice} projects={this.state.projects} toggleRightMenu={this.toggleRightMenu} />
+			: ""
 	}
 	toggleRightMenu = () => {
 		this.setState({ rightMenuActive: !this.state.rightMenuActive })

@@ -3,37 +3,6 @@ import React, { Component } from "react"
 class Penp extends Component {
 	constructor(props) {
 		super()
-
-		// A state for saving the items from the db.
-		this.state = {
-			practice: [],
-			projects: [],
-		}
-	}
-
-	// Fetch the db entries when the component mounts.
-	componentDidMount() {
-		fetch("/app/practice", {
-			method: "get",
-			dataType: "json",
-			headers: {
-				"Accept": "application/json",
-				"Content-Type": "application/json",
-			}
-		})
-			.then(res => res.json())
-			.then(practice => this.setState({practice}))
-
-		fetch("/app/projects", {
-			method: "get",
-			dataType: "json",
-			headers: {
-				"Accept": "application/json",
-				"Content-Type": "application/json",
-			}
-		})
-			.then(res => res.json())
-			.then(projects => this.setState({projects}))
 	}
 
 
@@ -49,7 +18,7 @@ class Penp extends Component {
 						</span>
 					</h2>
 					<div className="container--wrapper">
-						{this.state.practice.map(item => (
+						{this.props.practice.map(item => (
 							<div key={item.id} className={"container--wrapper--button " + item.name.toLowerCase()}>
 								<button className="container--wrapper--button--link">
 									<a href={`http://10.8.0.5:${item.port}`}>{item.name}</a>
@@ -62,7 +31,7 @@ class Penp extends Component {
 				<div className="container projects">
 					<h2 className="container--header">Projects</h2>
 					<div className="container--wrapper">
-						{this.state.projects.map(item => (
+						{this.props.projects.map(item => (
 							<div key={item.id} className={"container--wrapper--button " + item.name.toLowerCase()}>
 								<button className="container--wrapper--button--link">
 									<a href={`http://10.8.0.5:${item.port}`}>{item.name}</a>
