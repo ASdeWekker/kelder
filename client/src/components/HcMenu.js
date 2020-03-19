@@ -13,41 +13,63 @@ class HcMenu extends Component {
 					<h1 className="hcm-container--header--text">{name}</h1>
 				</header>
 				{/* The status should be automatically checked when the menu is opened. This text will be deleted once that is done. */}
-				<div className="hcm-container--buttons">
+				<div className="hcm-container--controls">
 					{name === "Wifi plugs" &&
 						<>
-							<div className="hcm-container--buttons--wrapper">
-								<h2 className="hcm-container--buttons--wrapper--item-header">Overhead Desk Lamp</h2>
+							<div className="hcm-container--controls--wrapper">
+								<h2 className="hcm-container--controls--wrapper--item-header">Overhead Desk Lamp</h2>
 								<button
-									className="hcm-container--buttons--wrapper--button"
+									className="hcm-container--controls--wrapper--button"
 									onClick={() => this.props.apiCall("wifi/o/toggle")}
 								><i className="gg-bulb"></i></button>
 							</div>
-							<div className="hcm-container--buttons--wrapper">
-								<h2 className="hcm-container--buttons--wrapper--item-header">Standing Lamp</h2>
+							<div className="hcm-container--controls--wrapper">
+								<h2 className="hcm-container--controls--wrapper--item-header">Standing Lamp</h2>
 								<button
-									className="hcm-container--buttons--wrapper--button"
+									className="hcm-container--controls--wrapper--button"
 									onClick={() => this.props.apiCall("wifi/s/toggle")}
 								><i className="gg-bulb"></i></button>
 							</div>
-							<div className="hcm-container--buttons--wrapper">
-								<h2 className="hcm-container--buttons--wrapper--item-header">Amplifier</h2>
+							<div className="hcm-container--controls--wrapper">
+								<h2 className="hcm-container--controls--wrapper--item-header">Amplifier</h2>
 								<button
-									className="hcm-container--buttons--wrapper--button"
+									className="hcm-container--controls--wrapper--button"
 									onClick={() => this.props.apiCall("wifi/a/toggle")}
 								><i className="gg-music-speaker"></i></button>
 							</div>
 						</>
 					}
 					{name === "Ledstrip" &&
-						<>
-							<h1>Ledstrip dingen</h1>
-						</>
+						<div className="wrapper">
+							<div className="header">
+								<button>on/off</button>
+								<h2>Color</h2>
+							</div>
+							<div className="brightness">
+
+							</div>
+							<div className="hsv-color">
+
+							</div>
+							<div className="fade">
+
+							</div>
+							<div className="moving-dot">
+
+							</div>
+							<div className="rainbow">
+
+							</div>
+							<div className="moving-rainbow">
+
+							</div>
+							<div className="wake-up">
+								
+							</div>
+						</div>
 					}
 					{name === "PC" &&
-						<>
-							<h1>Pc dingen</h1>
-						</>
+						<h1>Pc dingen</h1>
 					}
 				</div>
 				<footer className="hcm-container--footer">
