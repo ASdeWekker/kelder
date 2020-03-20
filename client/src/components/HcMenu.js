@@ -43,7 +43,7 @@ class HcMenu extends Component {
 						<div className="wrapper">
 							<div className="header">
 								<button>on/off</button>
-								<h2>Color</h2>
+								<h2>Color:</h2>
 							</div>
 							<div className="brightness">
 
