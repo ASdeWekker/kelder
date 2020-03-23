@@ -40,75 +40,186 @@ class HcMenu extends Component {
 						</>
 					}
 					{name === "Ledstrip" &&
-						<div className="wrapper">
-							<div className="header">
+						<div className="ledstrip-options">
+							<div className="ledstrip-options--wrapper status">
 								<button
-									className="button"
+									className="ledstrip-options--wrapper--button"
 									onClick={() => this.props.apiCall("led/p/toggle")}
-								>on/off</button>
-								<h2>Color:</h2>
+								><i className="gg-toggle-on"></i></button>
+								<h2 className="ledstrip-options--wrapper--header">Color:</h2>
 							</div>
-							<div className="brightness">
-								<h2>Brightness</h2>
+							{ /* === Brightness === */ }
+							<div className="ledstrip-options--wrapper brightness">
+								<h2 className="ledstrip-options--wrapper--header">Brightness</h2>
 								<label for="brightness-range">
-									<input id="brightness-range" name="brightness-range" type="range" min="0" max="255" step="1" />
+									<input
+										className="ledstrip-options--wrapper--range"
+										id="brightness-range"
+										name="brightness-range"
+										type="range"
+										min="0"
+										max="255"
+										step="1"
+									/>
 								</label>
 								<label for="brightness-number">
-									<input id="brightness-number" name="brightness-number" type="number" min="0" max="255" />
+									<input
+										className="ledstrip-options--wrapper--number"
+										id="brightness-number"
+										name="brightness-number"
+										type="number"
+										min="0"
+										max="255"
+									/>
 								</label>
 							</div>
-							<div className="hsv-color">
-								<h2>HSV Color</h2>
+							{ /* === HSV Color === */ }
+							<div className="ledstrip-options--wrapper hsv-color">
+								<h2 className="ledstrip-options--wrapper--header">HSV Color</h2>
 								<label for="hsv-color-range">
-									<input id="hsv-color-range" name="hsv-color-range" type="range" min="0" max="255" step="1" />
+									<input
+										className="ledstrip-options--wrapper--range"
+										id="hsv-color-range"
+										name="hsv-color-range"
+										type="range"
+										min="0"
+										max="255"
+										step="1"
+									/>
 								</label>
 								<label for="hsv-color-number">
-									<input id="hsv-color-number" name="hsv-color-number" type="number" min="0" max="255" />
+									<input
+										className="ledstrip-options--wrapper--number"
+										id="hsv-color-number"
+										name="hsv-color-number"
+										type="number"
+										min="0"
+										max="255"
+									/>
 								</label>
 							</div>
-							<div className="fade">
-								<h2>Fade</h2>
+							{ /* === Fade === */ }
+							<div className="ledstrip-options--wrapper fade">
+								<h2 className="ledstrip-options--wrapper--header">Fade</h2>
 								<label for="fade-range">
-									<input id="fade-range" name="fade-range" type="range" min="0" max="25" step="1" />
+									<input
+										className="ledstrip-options--wrapper--range"
+										id="fade-range"
+										name="fade-range"
+										type="range"
+										min="0"
+										max="25"
+										step="1"
+									/>
 								</label>
 								<label for="fade-number">
-									<input id="fade-number" name="fade-number" type="number" min="0" max="25" />
+									<input
+										className="ledstrip-options--wrapper--number"
+										id="fade-number"
+										name="fade-number"
+										type="number"
+										min="0"
+										max="25"
+									/>
 								</label>
 							</div>
-							<div className="moving-dot">
-								<h2>Moving Dot</h2>
+							{ /* === Moving Dot === */ }
+							<div className="ledstrip-options--wrapper moving-dot">
+								<h2 className="ledstrip-options--wrapper--header">Moving Dot</h2>
 								<label for="moving-dot-range">
-									<input id="moving-dot-range" name="moving-dot-range" type="range" min="1" max="11" step="1" />
+									<input
+										className="ledstrip-options--wrapper--range"
+										id="moving-dot-range"
+										name="moving-dot-range"
+										type="range"
+										min="1"
+										max="11"
+										step="1"
+									/>
 								</label>
 								<label for="moving-dot-number">
-									<input id="moving-dot-number" name="moving-dot-number" type="number" min="1" max="11" />
+									<input
+										className="ledstrip-options--wrapper--number"
+										id="moving-dot-number"
+										name="moving-dot-number"
+										type="number"
+										min="1"
+										max="11"
+									/>
 								</label>
 							</div>
-							<div className="rainbow">
-								<h2>Rainbow</h2>
+							{ /* === Rainbow === */ }
+							<div className="ledstrip-options--wrapper rainbow">
+								<h2 className="ledstrip-options--wrapper--header">Rainbow</h2>
 								<label for="rainbow-range">
-									<input id="rainbow-range" name="rainbow-range" type="range" min="1" max="5000" step="10" />
+									<input
+										className="ledstrip-options--wrapper--range"
+										id="rainbow-range"
+										name="rainbow-range"
+										type="range"
+										min="1"
+										max="5000"
+										step="10"
+									/>
 								</label>
 								<label for="rainbow-number">
-									<input id="rainbow-number" name="rainbow-number" type="number" min="1" max="5000" />
+									<input
+										className="ledstrip-options--wrapper--number"
+										id="rainbow-number"
+										name="rainbow-number"
+										type="number"
+										min="1"
+										max="5000"
+									/>
 								</label>
 							</div>
-							<div className="moving-rainbow">
-								<h2>Moving Rainbow</h2>
+							{ /* === Moving Rainbow === */ }
+							<div className="ledstrip-options--wrapper moving-rainbow">
+								<h2 className="ledstrip-options--wrapper--header">Moving Rainbow</h2>
 								<label for="moving-rainbow-range">
-									<input id="moving-rainbow-range" name="moving-rainbow-range" type="range" min="1" max="11" step="1" />
+									<input className="ledstrip-options--wrapper--range"
+										id="moving-rainbow-range"
+										name="moving-rainbow-range"
+										type="range"
+										min="1"
+										max="11"
+										step="1"
+									/>
 								</label>
 								<label for="moving-rainbow-number">
-									<input id="moving-rainbow-number" name="moving-rainbow-number" type="number" min="1" max="11" />
+									<input
+										className="ledstrip-options--wrapper--number"
+										id="moving-rainbow-number"
+										name="moving-rainbow-number"
+										type="number"
+										min="1"
+										max="11"
+									/>
 								</label>
 							</div>
-							<div className="wake-up">
-								<h2>Wake Up</h2>
+							{ /* === Wake Up === */ }
+							<div className="ledstrip-options--wrapper wake-up">
+								<h2 className="ledstrip-options--wrapper--header">Wake Up</h2>
 								<label for="wake-up-range">
-									<input id="wake-up-range" name="wake-up-range" type="range" min="15" max="60" step="1" />
+									<input
+										className="ledstrip-options--wrapper--range"
+										id="wake-up-range"
+										name="wake-up-range"
+										type="range"
+										min="15"
+										max="60"
+										step="1"
+									/>
 								</label>
 								<label for="wake-up-number">
-									<input id="wake-up-number" name="wake-up-number" type="number" min="15" max="60" />
+									<input
+										className="ledstrip-options--wrapper--number"
+										id="wake-up-number"
+										name="wake-up-number"
+										type="number"
+										min="15"
+										max="60"
+									/>
 								</label>
 							</div>
 						</div>

@@ -1,6 +1,6 @@
 .hcm-container
 	animation: menu-appear-bottom ease-in-out 0.2s
-	background: linear-gradient($bg-alt, lighten($bg-alt, 3%))
+	background: $bg-alt
 	bottom: 0
 	display: flex
 	flex-flow: column nowrap
@@ -47,6 +47,36 @@
 				
 				i
 					transform: scale(var(--ggs, 4))
+		
+		.ledstrip-options
+			align-items: center
+			display: flex
+			flex-flow: column nowrap
+			height: 82vh
+			justify-content: center
+			width: 100vw
+
+			&--wrapper
+				align-items: center
+				display: flex
+				flex-flow: row nowrap
+				height: 30px
+				justify-content: flex-start
+				margin: 10px 0
+				width: 90vw
+
+				&--button
+				&--header
+					font-size: 1.1em
+					text-align: right
+					flex-grow: 2
+
+				&--range
+					background: $bg-alt
+					margin: 0 1em
+
+				&--number
+					width: 50px
 
 	&--footer
 		height: 8vh
