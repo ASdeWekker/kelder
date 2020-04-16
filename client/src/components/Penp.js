@@ -21,7 +21,7 @@ class Penp extends Component {
 						{this.props.practice.map(item => (
 							<div key={item.id} className={"container--wrapper--button " + item.name.toLowerCase()}>
 								<button className="container--wrapper--button--link">
-									<a href={`http://10.8.0.5:${item.port}`}>{item.name}</a>
+									<a href={`http://10.8.0.1:${item.port}`}>{item.name}</a>
 								</button>
 								<button className="container--wrapper--button--toggle"><i className="gg-log-off"></i></button>
 							</div>
@@ -34,7 +34,7 @@ class Penp extends Component {
 						{this.props.projects.map(item => (
 							<div key={item.id} className={"container--wrapper--button " + item.name.toLowerCase()}>
 								<button className="container--wrapper--button--link">
-									<a href={`http://10.8.0.5:${item.port}`}>{item.name}</a>
+									<a href={`http://10.8.0.1:${item.port}`}>{item.name}</a>
 								</button>
 								<button className="container--wrapper--button--toggle"><i className="gg-log-off"></i></button>
 							</div>

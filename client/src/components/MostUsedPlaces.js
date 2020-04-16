@@ -7,7 +7,7 @@ class MostUsedPlaces extends Component {
 			<div className="mup">
 				<button
 					className="mup--button pihole"
-					onClick={() => window.location.href = "http://10.8.0.1:81/admin"}
+					onClick={() => window.location.href = "http://10.8.0.1/admin"}
 				>
 					<div className="mup--button--circle">
 						<i className="pi-hole"></i>
@@ -15,7 +15,7 @@ class MostUsedPlaces extends Component {
 				</button>
 				<button
 					className="mup--button apache"
-					onClick={() => window.location.href = "http://10.8.0.5/"}
+					onClick={() => window.location.href = "http://10.8.0.1:81/"}
 				>
 					<div className="mup--button--circle">
 						<i className="fas fa-cloud"></i>

@@ -17,7 +17,7 @@ class RightMenu extends Component {
 					projects={this.props.projects}
 					version={this.versionNumber}
 				/>
-				<p style={{marginLeft: "16px"}}><a href="http://10.8.0.4:3000">Go to the dev version</a></p>
+				<p style={{marginLeft: "16px"}}><a href="http://10.8.0.3:3000">Go to the dev version</a></p>
 				<h1 className="right-menu--title">Practice <span>&amp;</span> Projects
 					<span
 						className="right-menu--title--close-button"
