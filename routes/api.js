@@ -70,13 +70,14 @@ router.get("/led/:mode/:arg", (req, res) => {
 router.get("/wifi/:plug/:arg", (req, res) => {
 	let { plug, arg } = req.params
 	let command = `/usr/bin/python3 /home/alex/dotfiles/scripts/python/switch.py -${plug} ${arg}`
-	exec(command, (err, stdout, stderr) => {
-		logger.debug(err ? err : stderr ? stderr : stdout)
-		let message = err ? "" : stderr ? "" : "A wifi plug has been toggled."
-		let parsedOut = JSON.parse(stdout)
-		parsedOut.message = message
-		res.status(200).json(parsedOut)
-	})
+	res.status(200).json({"status": "on"})
+	// exec(command, (err, stdout, stderr) => {
+	// 	logger.debug(err ? err : stderr ? stderr : stdout)
+	// 	let message = err ? "" : stderr ? "" : "A wifi plug has been toggled."
+	// 	let parsedOut = JSON.parse(stdout)
+	// 	parsedOut.message = message
+	// 	res.status(200).json(parsedOut)
+	// })
 })
 
 
